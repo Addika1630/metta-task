@@ -16,7 +16,6 @@
 ;   Example: ! (sum_even_fibonacci_within_limit 100 0 1 0)
 ;   This will return 44, the sum of even Fibonacci numbers below 100 (2, 8, 34).
 
-
 (= (sum_even_fibonacci_within_limit $limit $a $b $sum)
    (if (> $a $limit)
        $sum  

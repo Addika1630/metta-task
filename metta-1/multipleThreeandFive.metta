@@ -15,7 +15,6 @@
 ; - `(func 10)` computes the sum of numbers less than 10 that are divisible by 3 or 5.
 ;   The numbers are 3, 5, 6, and 9. Their sum is 23.
 
-
 (= (func $x)
   (if (> $x 1) ; Stop when $x <= 1
     (if (or (== (% (- $x 1) 3) 0) (== (% (- $x 1) 5) 0)) 

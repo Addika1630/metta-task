@@ -22,7 +22,7 @@
         (+ (- $x 1) (func (- $x 1))) ; Add $x - 1 if divisible by 3 or 5
         (func (- $x 1)) ; Otherwise, skip $x - 1
     ) 
-    0 ; Base case
+    0 
     )
 )
 

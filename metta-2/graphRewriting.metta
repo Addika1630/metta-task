@@ -1,6 +1,6 @@
+(link A B)
 (link B C)
 (link C A)
-(link C E)
 
 ! (match &self (, (link $x $y)
                   (link $y $z)
@@ -12,4 +12,3 @@
     (link $x $y)) 
 
 
-    

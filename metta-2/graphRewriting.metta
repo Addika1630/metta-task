@@ -8,15 +8,12 @@
 (link (only-c c) (only-a a))
 
 
-;; Now match the links and remove one
 ! (match &self (, (link (only-a $a) (only-b $b))
                   (link (only-b $b) (only-c $c))
                   (link (only-c $c) (only-a $a)))
     (let* () 
-        ;; Remove the link (only-c c) -> (only-a a)
         (do (remove-atom &self (link (only-c c) (only-a a)))
         
-        ;; Add new links
         (add-atom &self (link (only-c c) (only-d d)))
         (add-atom &self (link (only-d d) (only-a a))))
     )

@@ -12,10 +12,12 @@
                   (link (only-b $b) (only-c $c))
                   (link (only-c $c) (only-a $a)))
     (let* () 
-        (do (remove-atom &self (link (only-c $c) (only-a $a)))
+        (do 
+            (remove-atom &self (link (only-c $c) (only-a $a)))
         
-        (add-atom &self (link (only-c $c) (only-d $d)))
-        (add-atom &self (link (only-d $d) (only-a $a))))
+            (add-atom &self (link (only-c $c) (only-d $d)))
+            (add-atom &self (link (only-d $d) (only-a $a)))
+        )
     )
 )
 

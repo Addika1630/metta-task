@@ -1,3 +1,10 @@
+;; minValue function: 
+;; This function recursively finds the minimum value in a given list.
+;; - If the list is empty, it returns an error message.
+;; - Otherwise, it compares the head of the list with the minimum of the tail 
+;;   and returns the smaller of the two.
+;; - Base case: If the list has only one element, it returns that element.
+
 (= (minValue $list)
     (if (== $list ())  
         (error "List is empty")  

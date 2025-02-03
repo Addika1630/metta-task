@@ -35,7 +35,8 @@
     
 ! (match &self (, (link (only-a $a) (only-b $b))
                   (link (only-b $b) (only-c $c))
-                  (link (only-c $c) (only-a $a)))
+                  (link (only-c $c) (only-a $a))
+                )
     (let* () 
         (do 
             (remove-atom &self (link (only-c $c) (only-a $a)))

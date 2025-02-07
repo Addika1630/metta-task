@@ -1,5 +1,3 @@
-ECAN Summary
-
 # ECAN: Elastic Cognitive Associative Network
 
 ECAN (Elastic Cognitive Associative Network) is an associative memory model designed to efficiently store and retrieve memories in AI systems. It is inspired by the Hopfield network but introduces unique dynamics for enhanced performance. ECAN leverages noise-resistant memory retrieval and convergence properties, making it suitable for cognitive systems such as OpenCog.
@@ -10,9 +8,9 @@ ECAN (Elastic Cognitive Associative Network) is an associative memory model desi
 - **Storage**: ECAN stores memories as binary patterns.
 - **Retrieval**: Memories are retrieved through noisy input cues, ensuring robustness to incomplete or noisy data.
 
-### Convergence Theorem
-- ECAN converges to an attracting fixed point, ensuring that the correct memory is retrieved under specific conditions.
-- The mathematical model guarantees convergence through hyperbolic decision functions and contraction mapping theorems.
+### Variant 1: Hyperbolic Decision Functions
+- ECAN utilizes hyperbolic decision functions to model memory retrieval, which enhance the system's ability to converge to the correct memory under noisy conditions.
+- The model leverages these functions to ensure stable convergence, helping to refine memory recall even when inputs are partial or disturbed.
 
 ### Variant 2: Lyapunov Function and Rent Collection
 - **Lyapunov Function**: The network employs the Lyapunov function (AVDIFF) to control convergence, minimizing the discrepancy between inputs and outputs in each "Atom."
@@ -40,5 +38,4 @@ TBD
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-=======
->>>>>>> 81b7b878151fc7b5bdf8426a934dfec68da02bad
+

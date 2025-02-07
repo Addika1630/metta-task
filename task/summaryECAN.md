@@ -108,3 +108,43 @@ The class is thread-safe, using mutexes to ensure safe access in concurrent oper
 
 ---
 
+
+
+
+# ImportanceIndex
+
+## Overview
+
+The `ImportanceIndex` class is part of the OpenCog framework and provides a thread-safe mechanism for managing the short-term importance (STI) of atoms within an atomspace. It organizes atoms into bins based on their importance and supports efficient querying, updating, and retrieval of atoms based on their importance values.
+
+This class is crucial for cognitive systems where the importance of entities (atoms) fluctuates over time and influences decision-making or actions. The class handles the dynamic nature of importance through continuous updates and tracks the maximum and minimum STI values.
+
+## Features
+
+- **Thread Safety**: Utilizes `std::mutex` to ensure thread safety for concurrent operations.
+- **Importance Binning**: Organizes atoms into bins based on their importance value (STI).
+- **Dynamic Updates**: Supports real-time updates of atom importance.
+- **Range Queries**: Allows querying of atoms within a specified importance range.
+- **Random Atom Retrieval**: Provides functionality for selecting a random atom from the index.
+- **Exponential Decay**: Tracks exponential decays of maximum and minimum STI values.
+
+## Classes and Methods
+
+### `ImportanceIndex` Class
+
+#### Key Methods
+
+- `update()`: Updates the importance index.
+- `getMaxSTI(bool average=true)`: Gets the maximum STI, with an option for an exponentially decaying average.
+- `getMinSTI(bool average=true)`: Gets the minimum STI, with an option for an exponentially decaying average.
+- `getHandleSet(AttentionValue::sti_t lowerBound, AttentionValue::sti_t upperBound = AttentionValue::MAXSTI)`: Returns a set of atoms within a specified STI range.
+- `getRandomAtom()`: Returns a random atom from the index.
+
+### Dependencies
+
+- `std::mutex` for thread safety.
+- `AtomBins`: Used to store atoms in importance bins.
+- `AttentionValue`: Stores the importance value (STI) of atoms.
+- `recent_val`: Used for tracking exponentially decaying values.
+
+

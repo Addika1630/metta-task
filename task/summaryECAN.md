@@ -1,6 +1,6 @@
-# ECAN: Elastic Cognitive Associative Network
+# ECAN: Economic Attention Network
 
-ECAN (Elastic Cognitive Associative Network) is an associative memory model designed to efficiently store and retrieve memories in AI systems. It is inspired by the Hopfield network but introduces unique dynamics for enhanced performance. ECAN leverages noise-resistant memory retrieval and convergence properties, making it suitable for cognitive systems such as OpenCog.
+ECAN (Economic Attention Network) is an associative memory model designed to efficiently store and retrieve memories in AI systems. It is inspired by the Hopfield network but introduces unique dynamics for enhanced performance. ECAN leverages noise-resistant memory retrieval and convergence properties, making it suitable for cognitive systems such as OpenCog.
 
 ## Key Features
 

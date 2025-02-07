@@ -8,9 +8,8 @@ ECAN (Economic Attention Network) is an associative memory model designed to eff
 - **Storage**: ECAN stores memories as binary patterns.
 - **Retrieval**: Memories are retrieved through noisy input cues, ensuring robustness to incomplete or noisy data.
 
-### Variant 1: Hyperbolic Decision Functions
-- ECAN utilizes **hyperbolic decision functions** to model memory retrieval, which enhance the system's ability to converge to the correct memory under noisy conditions.
-- The model leverages these functions to ensure stable convergence, helping to refine memory recall even when inputs are partial or disturbed.
+### Variant 1: 
+- Variant 1 of ECAN updates Stimulus (STI) values through a rent and wage mechanism, where nodes' STI values are influenced by their importance. The connection matrix is updated using conjunction equations with a decay function. A diffusion process spreads STI values among nodes using a stochastic matrix, ensuring homeostasis by adjusting funds. Periodic adjustments maintain the balance of the system, ensuring conserved quantities and stable behavior across nodes.
 
 ### Variant 2: Lyapunov Function and Rent Collection
 - **Lyapunov Function**: The network employs the Lyapunov function (AVDIFF) to control convergence, minimizing the discrepancy between inputs and outputs in each "Atom."

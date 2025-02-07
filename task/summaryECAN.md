@@ -9,7 +9,9 @@ ECAN (Economic Attention Network) is an associative memory model designed to eff
 - **Retrieval**: Memories are retrieved through noisy input cues, ensuring robustness to incomplete or noisy data.
 
 ### Variant 1: 
-- Variant 1 of ECAN updates Stimulus (STI) values through a rent and wage mechanism, where nodes' STI values are influenced by their importance. The connection matrix is updated using conjunction equations with a decay function. A diffusion process spreads STI values among nodes using a stochastic matrix, ensuring homeostasis by adjusting funds. Periodic adjustments maintain the balance of the system, ensuring conserved quantities and stable behavior across nodes.
+- **Stimulus Update**: STI values are updated through rent and wages based on node importance, with periodic adjustments.
+- **Connection Matrix**: The matrix is updated using conjunction equations, with a decay function to refine relationships.
+- **Diffusion Process**: A diffusion matrix spreads STI values across nodes using a stochastic approach, maintaining homeostasis.
 
 ### Variant 2: Lyapunov Function and Rent Collection
 - **Lyapunov Function**: The network employs the Lyapunov function (AVDIFF) to control convergence, minimizing the discrepancy between inputs and outputs in each "Atom."
@@ -20,8 +22,9 @@ ECAN (Economic Attention Network) is an associative memory model designed to eff
 - Memory retrieval efficiency is compared to a Hopfield network, with performance depending on the number of memories stored and their alignment with the "focus of attention" (AF).
 
 ### Integration with OpenCog Components
-- **OpenCogPrime**: ECAN is used to drive concept creation and enhance memory capacity.
-- **PLN**: It integrates with the Probabilistic Logic Network (PLN) to guide cognitive functions like inference, ensuring effective knowledge retrieval and processing.
+- **OpenCog Framework**: OpenCog is an open-source AGI framework focused on building AI systems, with ECAN implemented as part of the OpenCogPrime (OCP) design.
+- **CogServer and AtomTable**: ECAN nodes and links are stored in the AtomTable, with the CogServer managing STI and LTI funds and scheduling MindAgents for cognitive operations.
+- **MindAgent Collaboration**: ECAN MindAgents (HebbianLinkUpdating, ImportanceUpdating) interact with other cognitive MindAgents like PLN and MOSES to perform complex tasks and manage resources.
 
 ### Key Properties
 - **Hebbian Probability**: The updating scheme is governed by Hebbian-like rules and the diffusion process, ensuring that nodes with higher STI values receive more rewards but also pay more rent.
@@ -35,13 +38,5 @@ ECAN (Economic Attention Network) is an associative memory model designed to eff
 - **High Memory Capacity**: The sparse network architecture allows for storing a large number of memories.
 - **Scalable**: ECAN is well-suited for large cognitive systems, such as OpenCog and other AI models.
 
-## Installation & Setup
-TBD
-
-## Usage
-TBD
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 

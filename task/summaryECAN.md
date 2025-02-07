@@ -40,3 +40,71 @@ ECAN (Economic Attention Network) is an associative memory model designed to eff
 
 
 
+
+
+
+
+
+
+# AttentionBank
+
+## Overview
+
+The `AttentionBank` class is designed to manage and manipulate attention values in an atom space. The attention mechanism helps in prioritizing atoms based on their significance, with the `AttentionBank` class providing functionality to manage those values in real time. It operates using short-term and long-term attention values to determine the importance of atoms.
+
+### Core Features:
+- **Short-Term Importance (STI)**: Reflects immediate attention.
+- **Long-Term Importance (LTI)**: Reflects the long-term value of an atom.
+- **Very Long-Term Importance (VLTI)**: Tracks the value of an atom's attention over an extended period.
+
+## Files
+
+### `AttentionBank.h`
+
+This header file defines the `AttentionBank` class and interfaces for managing and manipulating attention values of atoms. It provides methods for setting and updating attention values, as well as stimulating atoms and managing attentional focus.
+
+#### Key Components:
+- **`AttentionBank` Class**: Manages and updates attention values, including STI, LTI, and VLTI for atoms.
+- **Constants**:
+  - `startingFundsSTI`, `startingFundsLTI`: Initial funds for STI and LTI.
+  - `stiFundsBuffer`, `ltiFundsBuffer`: Buffers for STI and LTI calculations.
+  - `maxAFSize`: Maximum size for the attentional focus list.
+  - `STIAtomWage`, `LTIAtomWage`: Wage rates for STI and LTI adjustments.
+
+#### Methods:
+- **`set_sti(const Handle&, AttentionValue::sti_t)`**: Sets the short-term importance (STI) of an atom.
+- **`set_lti(const Handle&, AttentionValue::lti_t)`**: Sets the long-term importance (LTI) of an atom.
+- **`stimulate(const Handle&, double)`**: Stimulates an atom and updates its attention values.
+- **`AVChanged(const Handle&, const AttentionValuePtr&, const AttentionValuePtr&)`**: Called when an atom's attention value changes.
+
+---
+
+### `AttentionBank.cc`
+
+This source file implements the methods declared in `AttentionBank.h`. It handles the core logic for managing attention values and updating the attentional focus, integrating with other OpenCog components like `AtomSpace` and `AttentionValue`.
+
+#### Key Features:
+- **Managing Attention Values**: Implements functionality for setting, updating, and stimulating STI and LTI values.
+- **Stimulus Calculation**: Updates attention values when an atom is stimulated based on a provided stimulus.
+- **Focus Management**: Updates the attentional focus list based on the most important atoms and ensures that only the top priorities are maintained.
+- **Funds Management**: Handles the allocation and consumption of STI and LTI funds when updating attention values.
+- **Thread-Safety**: Uses mutexes to safely manage concurrent access in a multi-threaded environment.
+
+#### Key Methods:
+- **`remove_atom_from_bank(const AtomPtr&)`**: Removes an atom from the attention bank.
+- **`calculateSTIWage()`**: Calculates the STI wage rate based on available funds.
+- **`calculateLTIWage()`**: Similar to `calculateSTIWage()`, but for LTI adjustments.
+- **`updateAttentionalFocus(const Handle&, const AttentionValuePtr&, const AttentionValuePtr&)`**: Updates the attentional focus list with new attention values.
+
+### Singleton Pattern
+
+The `AttentionBank` class follows the singleton pattern to ensure there is a single instance per `AtomSpace`. This prevents conflicts and minimizes overhead when managing attention across different atom spaces.
+
+- **`attentionbank(AtomSpace*)`**: Returns the singleton instance of `AttentionBank` for a given `AtomSpace`.
+
+### Thread-Safety and Signal Emission
+
+The class is thread-safe, using mutexes to ensure safe access in concurrent operations. Signals are emitted when atoms are added or removed from the attentional focus list, or when their attention values change.
+
+---
+

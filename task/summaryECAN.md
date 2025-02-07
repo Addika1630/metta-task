@@ -1,5 +1,6 @@
 ECAN Summary
 
+<<<<<<< HEAD
 # ECAN: Elastic Cognitive Associative Network
 
 ECAN (Elastic Cognitive Associative Network) is an associative memory model designed to efficiently store and retrieve memories in AI systems. It is inspired by the Hopfield network but introduces unique dynamics for enhanced performance. ECAN leverages noise-resistant memory retrieval and convergence properties, making it suitable for cognitive systems such as OpenCog.
@@ -40,3 +41,5 @@ TBD
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+=======
+>>>>>>> 81b7b878151fc7b5bdf8426a934dfec68da02bad

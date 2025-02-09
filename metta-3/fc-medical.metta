@@ -1,3 +1,15 @@
+;; This code implements forward chaining in a knowledge base using the chain rule for logical inference.
+;; It defines:
+;; - A cast function to convert numbers to a natural number representation (using S for successor and Z for zero).
+;; - A knowledge base that holds medical facts, where conditions lead to other conditions.
+;; - A rule base that applies the chain rule (if p → q and q → r, then p → r) to infer new facts.
+;; - A forward chaining algorithm that uses the chain rule to recursively derive conclusions from known facts.
+
+;; Knowledge Base: Stores medical facts (e.g., Fever → Flu, Flu → Antiviral, etc.).
+;; Rule Base: Contains rules for applying the chain rule to derive conclusions.
+;; Forward Chaining: Uses recursive application of rules to infer new facts.
+
+
 (: fromNumber (-> Number Atom))
 (= (fromNumber $n) (if (<= $n 0) Z (S (fromNumber (- $n 1)))))
 

@@ -1,4 +1,3 @@
-;; Define a function to convert numbers to Peano representation
 (: fromNumber (-> Number Atom))
 (= (fromNumber $n) (if (<= $n 0) Z (S (fromNumber (- $n 1)))))
 

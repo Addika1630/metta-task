@@ -1,3 +1,17 @@
+;; Purpose: This code uses backward chaining to identify symptoms based on given treatments.
+;; It traces the path from a treatment to its possible causes (symptoms).
+
+;; `fromNumber`: Converts numbers to Peano arithmetic form (Z for zero, S for successor).
+;; The Knowledge Base (`&kb`) contains medical facts linking symptoms to treatments (e.g., Fever → Flu).
+;; The Rule Base (`&rb`) defines the chain rule: if A → B and B → C, then A → C.
+;; The Backward Chaining (`bc`) function determines if a conclusion (treatment) can be reached from symptoms.
+;; Queries like `(bc (Implies $what Antiviral) (fromNumber 4))` find symptoms leading to Antiviral treatment.
+;; The goal is to reason backward from treatments to symptoms, identifying possible causes.
+;; This method helps in diagnosing conditions and understanding the relationships between symptoms and treatments.
+;; By applying the chain rule, the system finds the required connections between symptoms and treatments.
+;; The result is a list of symptoms that correspond to a particular treatment.
+
+
 (: fromNumber (-> Number Atom))
 (= (fromNumber $n) (if (<= $n 0) Z (S (fromNumber (- $n 1)))))
 
@@ -17,7 +31,7 @@
 
 
 !(bind! &rb (new-space))
-!(add-atom &rb (-> (Implies $p $q) (Implies $q $r) (Implies $p $r)))  ;; Chain Rule
+!(add-atom &rb (-> (Implies $p $q) (Implies $q $r) (Implies $p $r)))  
 
 
 (: bc (-> Atom Nat Atom))

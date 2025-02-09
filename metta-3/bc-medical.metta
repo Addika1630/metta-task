@@ -31,10 +31,10 @@
    (match &kb $conclusion $conclusion))
 
 ;; Recursive step: Use chain rule to chain premises
-(= (bc $conclusion (S $k)) ;; Recursive case (depth > 0)
-   (match &rb (-> $premise1 $premise2 $conclusion)        ;(p1 p2 (Inheritance $what green))  ((True) (Inheritance fritz frog) (Inheritance fritz green))
-          (let* (($premise1 (bc_bem $premise1 $k))     ;(bc (True) (s z))    (True)
-                 ($premise2 (bc_bem $premise2 $k)))     ;(bc (Inheritance fritz frog) (s z)) ->  ( (Evaluation croaks Fritz) (Evaluation eats_flies fritz) (Inheritance $x frog))
+(= (bc $conclusion (S $k))
+   (match &rb (-> $premise1 $premise2 $conclusion)       
+          (let* (($premise1 (bc_bem $premise1 $k))    
+                 ($premise2 (bc_bem $premise2 $k)))  
             $conclusion))
 )
 

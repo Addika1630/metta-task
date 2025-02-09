@@ -22,7 +22,6 @@
 !(bind! &rb (new-space))
 !(add-atom &rb (-> (→ $p $q) (→ $q $r) (→ $p $r))) ;; Chain Rule
 
-
 (= (fc $premise $depth) $premise)
 
 (= (fc $premise1 (S $k))

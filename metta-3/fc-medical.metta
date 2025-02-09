@@ -2,7 +2,6 @@
 (: fromNumber (-> Number Atom))
 (= (fromNumber $n) (if (<= $n 0) Z (S (fromNumber (- $n 1)))))
 
-;; Extended Medical Knowledge Base
 !(bind! &kb (new-space))
 !(add-atom &kb (→ Fever Flu))
 !(add-atom &kb (→ Cough Flu))
@@ -21,16 +20,12 @@
 !(add-atom &kb Fatigue)
 !(add-atom &kb HighBP)
 
-;; Medical Rule Base - Chain Rule
 !(bind! &rb (new-space))
 !(add-atom &rb (-> (→ $p $q) (→ $q $r) (→ $p $r))) ;; Chain Rule
 
-;; Forward Chaining Inference Engine Using Only Chain Rule
 
-;; Base case: If depth is zero, return the premise
 (= (fc $premise $depth) $premise)
 
-;; Recursive case: Apply chain rule and continue inference
 (= (fc $premise1 (S $k))
    (match &rb (-> (→ $premise1 $nextStep) (→ $nextStep $result) (→ $premise1 $result))
                (match &kb (→ $premise1 $nextStep) 
@@ -42,9 +37,9 @@
 )
 
 ;; Running forward chaining with chain rule only
-!(fc Fever (fromNumber 10))        ;; Expected output: [Fever, Flu, Antiviral]
-!(fc SoreThroat (fromNumber 4))   ;; Expected output: [SoreThroat, Infection, Antibiotic]
-!(fc Fatigue (fromNumber 4))      ;; Expected output: [Fatigue, Anemia, IronSupplement]
-!(fc HighBP (fromNumber 4))       ;; Expected output: [HighBP, Hypertension, Medication]
+!(fc Fever (fromNumber 10))        ;; Expected output: [Fever, Antiviral]
+!(fc SoreThroat (fromNumber 4))   ;; Expected output: [SoreThroat, Antibiotic]
+!(fc Fatigue (fromNumber 4))      ;; Expected output: [Fatigue, IronSupplement]
+!(fc HighBP (fromNumber 4))       ;; Expected output: [HighBP, Medication]
 
 

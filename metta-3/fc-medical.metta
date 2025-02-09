@@ -15,12 +15,11 @@
 ;; Medical Rule Base
 !(bind! &rb (new-space))
 !(add-atom &rb (-> (→ $symptom $disease) $symptom $disease))
-!(add-atom &rb (-> (→ $disease $treatment) $disease $treatment))
 
 ;; Forward Chaining Inference Engine
 
 ;; Base case: If depth is zero, return the premise
-(= (fc $premise Z) $premise)
+(= (fc $premise $Z) $premise)
 
 ;; Recursive case: Apply rules and continue inference
 (= (fc $premise (S $k))

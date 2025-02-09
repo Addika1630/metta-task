@@ -3,21 +3,21 @@
 
 
 !(bind! &kb (new-space))
-!(add-atom &kb (→ Fever Flu))
-!(add-atom &kb (→ Cough Flu))
-!(add-atom &kb (→ Flu Antiviral))
-!(add-atom &kb (→ Headache Migraine))
-!(add-atom &kb (→ Migraine Painkiller))
-!(add-atom &kb (→ SoreThroat Infection))
-!(add-atom &kb (→ Infection Antibiotic))
-!(add-atom &kb (→ Fatigue Anemia))
-!(add-atom &kb (→ Anemia IronSupplement))
-!(add-atom &kb (→ HighBP Hypertension))
-!(add-atom &kb (→ Hypertension Medication))
+!(add-atom &kb (Implies Fever Flu))
+!(add-atom &kb (Implies Cough Flu))
+!(add-atom &kb (Implies Flu Antiviral))
+!(add-atom &kb (Implies Headache Migraine))
+!(add-atom &kb (Implies Migraine Painkiller))
+!(add-atom &kb (Implies SoreThroat Infection))
+!(add-atom &kb (Implies Infection Antibiotic))
+!(add-atom &kb (Implies Fatigue Anemia))
+!(add-atom &kb (Implies Anemia IronSupplement))
+!(add-atom &kb (Implies HighBP Hypertension))
+!(add-atom &kb (Implies Hypertension Medication))
 
 
 !(bind! &rb (new-space))
-!(add-atom &rb (-> (→ $p $q) (→ $q $r) (→ $p $r)))  ;; Chain Rule
+!(add-atom &rb (-> (Implies $p $q) (Implies $q $r) (Implies $p $r)))  ;; Chain Rule
 
 
 (: bc (-> Atom Nat Atom))
@@ -32,9 +32,11 @@
 )
 
 
-!(bc (→ $what Antiviral) (fromNumber 4))  ;; Expected: Fever → Flu → Antiviral
-!(bc (→ $what Antibiotic) (fromNumber 4))  ;; Expected: SoreThroat → Infection → Antibiotic
-!(bc (→ $what IronSupplement) (fromNumber 4))  ;; Expected: Fatigue → Anemia → IronSupplement
-!(bc (→ $what Medication) (fromNumber 4))  ;; Expected: HighBP → Hypertension → Medication
+!(bc (Implies $what Antiviral) (fromNumber 4))           ;; Expected: [(Implies Flu Antiviral)]
+!(bc (Implies $what Antibiotic) (fromNumber 4))          ;; Expected: [(Implies Infection Antibiotic)]
+!(bc (Implies $what IronSupplement) (fromNumber 4))      ;; Expected: [(Implies Anemia IronSupplement)]
+!(bc (Implies $what Medication) (fromNumber 4))          ;; Expected: [(Implies Hypertension Medication)]
+
+
 
 

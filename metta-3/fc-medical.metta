@@ -1,4 +1,7 @@
-;; This code implements forward chaining in a knowledge base using the chain rule for logical inference.
+;; The purpose of this code is to demonstrate forward chaining with logical inference in a medical context.
+;; It uses a knowledge base of medical facts and a rule base that implements the chain rule for deducing conclusions.
+;; The code recursively applies logical rules to infer medical conditions and treatments from given facts.
+
 ;; It defines:
 ;; - A cast function to convert numbers to a natural number representation (using S for successor and Z for zero).
 ;; - A knowledge base that holds medical facts, where conditions lead to other conditions.

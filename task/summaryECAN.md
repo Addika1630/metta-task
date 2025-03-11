@@ -123,7 +123,6 @@ This class is crucial for cognitive systems where the importance of entities (at
 ### `ImportanceIndex` Class
 
 #### Key Methods
-
 - `update()`: Updates the importance index.
 - `getMaxSTI(bool average=true)`: Gets the maximum STI, with an option for an exponentially decaying average.
 - `getMinSTI(bool average=true)`: Gets the minimum STI, with an option for an exponentially decaying average.

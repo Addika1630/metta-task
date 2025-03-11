@@ -39,7 +39,6 @@ ECAN (Economic Attention Network) is an associative memory model designed to eff
 - **Scalable**: ECAN is well-suited for large cognitive systems, such as OpenCog and other AI models.
 
 
-
 # AttentionBank
 
 ## Overview

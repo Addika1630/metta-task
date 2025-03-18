@@ -104,6 +104,7 @@ The class is thread-safe, using mutexes to ensure safe access in concurrent oper
 
 # ImportanceIndex
 
+
 ## Overview
 
 The `ImportanceIndex` class is part of the OpenCog framework and provides a thread-safe mechanism for managing the short-term importance (STI) of atoms within an atomspace. It organizes atoms into bins based on their importance and supports efficient querying, updating, and retrieval of atoms based on their importance values.

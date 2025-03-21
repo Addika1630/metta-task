@@ -5,6 +5,7 @@ ECAN (Economic Attention Network) is an associative memory model designed to eff
 
 ## Key Features
 
+
 ### Memory Imprinting & Retrieval
 - **Storage**: ECAN stores memories as binary patterns.
 - **Retrieval**: Memories are retrieved through noisy input cues, ensuring robustness to incomplete or noisy data.

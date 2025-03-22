@@ -16,7 +16,8 @@
 ;; - (isMember (4 2 5 6) 10) → False  
 
 (= (isMember $list $x)
-    (if (== $list ()) False
+    (if (== $list ()) 
+        False
         (let*
             (
                 ($head (car-atom $list))

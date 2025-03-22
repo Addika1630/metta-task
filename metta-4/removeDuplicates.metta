@@ -1,3 +1,7 @@
+;; Removes duplicate elements from a list ($expr) using recursion.  
+;; Checks if the head exists in the tail and excludes it if found.  
+;; Uses `isMember` to verify membership before adding elements. 
+
 (= (removeDuplicates $expr)
     (if (== $expr ())
         ()

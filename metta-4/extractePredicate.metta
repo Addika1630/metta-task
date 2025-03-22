@@ -5,7 +5,7 @@
 (= (extracter $array $func)
    (if (== $array ())
        () 
-       (notEmpty $array)
+       ($func $array)
    )
 )
 

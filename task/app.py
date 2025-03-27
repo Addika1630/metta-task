@@ -103,23 +103,20 @@ def main():
     # Create the line plot with smooth line and markers
     fig = go.Figure()
 
-    # Add the line trace with color scale
+    # Add the line trace without color attribute for line (removed color from line)
     fig.add_trace(go.Scatter(
         x=merged_over_time.index,
         y=merged_over_time.values,
         mode='lines+markers',  # Use both lines and markers
         line=dict(
-            color=merged_over_time.values,  # Use the values to color the line
-            colorscale='Viridis',  # Gradient color scale
             width=4,  # Line width
-            smoothing=1.5,  # Smooth curve
-            colorbar=dict(title="Number of Merged PRs")  # Add color bar for reference
+            smoothing=1.5  # Smooth curve
         ),
         marker=dict(
             size=8,  # Marker size
-            color=merged_over_time.values,  # Same color scale for markers
+            color=merged_over_time.values,  # Use the values to color the markers
             colorscale='Viridis',  # Gradient color scale for markers
-            showscale=True  # Show color scale
+            showscale=True  # Show color scale for markers
         ),
         name="Merged PRs"
     ))
@@ -156,5 +153,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

@@ -5,49 +5,6 @@ import plotly.express as px
 # Set page config first (before any other Streamlit command)
 st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
 
-# Custom CSS to apply a black background to the entire screen
-st.markdown("""
-<style>
-    /* Set background color for the entire page */
-    .css-1d391kg {
-        background-color: #1e1e1e;
-    }
-
-    /* Sidebar background color */
-    .css-1lcbn6v {
-        background-color: #1e1e1e;
-    }
-
-    /* Text color for sidebar and body */
-    .css-1d391kg, .css-1lcbn6v, .css-14xt9kj, .css-12oz5g7 {
-        color: white;
-    }
-
-    /* Change background and text color for buttons */
-    .stButton>button {
-        background-color: #444444;
-        color: white;
-        border: none;
-        padding: 8px 20px;
-        border-radius: 5px;
-    }
-
-    .stButton>button:hover {
-        background-color: #666666;
-    }
-
-    /* Modify the color of Streamlit metrics */
-    .stMetricValue {
-        color: white;
-    }
-
-    /* Adjust chart background color */
-    .plotly-graph-div {
-        background-color: #1e1e1e;
-        color: white;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 # Load data
 def load_data():

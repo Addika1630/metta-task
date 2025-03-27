@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def load_data():
     # Load the dataset (modify the file path as needed)
-    df = pd.read_csv("your_file.csv", delimiter="\t")
+    df = pd.read_csv("https://raw.githubusercontent.com/Addika1630/metta-task/refs/heads/main/task/exports.csv")
     
     # Convert 'updated_at' to datetime format
     df["updated_at"] = pd.to_datetime(df["updated_at"], unit='s')

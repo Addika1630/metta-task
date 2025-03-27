@@ -8,27 +8,22 @@ st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="
 # Custom CSS to apply a black background to the entire screen
 st.markdown("""
 <style>
-    /* Background color for the entire page */
-    .main {
+    /* Set background color for the entire page */
+    .css-1d391kg {
         background-color: #1e1e1e;
     }
 
-    /* Background color for the sidebar */
+    /* Sidebar background color */
     .css-1lcbn6v {
         background-color: #1e1e1e;
     }
 
-    /* Change text color to make it visible on dark background */
-    .css-1d391kg, .css-1lcbn6v, .css-14xt9kj {
+    /* Text color for sidebar and body */
+    .css-1d391kg, .css-1lcbn6v, .css-14xt9kj, .css-12oz5g7 {
         color: white;
     }
 
-    /* Custom background for the app title */
-    .css-12oz5g7 {
-        color: white;
-    }
-
-    /* Custom background for buttons and widgets */
+    /* Change background and text color for buttons */
     .stButton>button {
         background-color: #444444;
         color: white;
@@ -43,6 +38,12 @@ st.markdown("""
 
     /* Modify the color of Streamlit metrics */
     .stMetricValue {
+        color: white;
+    }
+
+    /* Adjust chart background color */
+    .plotly-graph-div {
+        background-color: #1e1e1e;
         color: white;
     }
 </style>

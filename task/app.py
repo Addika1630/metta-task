@@ -82,9 +82,9 @@ def main():
     top_owners = merged_prs["owner"].value_counts().head(20)
     
     # Create a responsive grid of buttons for each owner
-    cols = st.columns(6)
+    cols = st.columns(5)
     for i, (owner, count) in enumerate(top_owners.items()):
-        with cols[i % 6]:
+        with cols[i % 5]:
             # Make button smaller by using 'st.button' with width control
             if st.button(f"{owner} ({count})", key=owner, use_container_width=False):
                 select_owner(owner)

@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+# Set page config first, before any other Streamlit commands
+st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
+
 # Load data
 def load_data():
     df = pd.read_csv("https://raw.githubusercontent.com/Addika1630/metta-task/refs/heads/main/task/exports.csv")
@@ -19,6 +22,13 @@ def reset_owner_selection():
     st.session_state.selected_owner = None
 
 def main():
+    # Streamlit App Title
+    st.title("📊 Interactive Merged PRs Dashboard")
+
+    # Sidebar content
+    st.sidebar.title("Holdex")
+    st.sidebar.text("Data for merged pull requests")
+
     # Custom CSS for black background
     st.markdown("""
         <style>
@@ -47,14 +57,6 @@ def main():
             }
         </style>
     """, unsafe_allow_html=True)
-
-    # Streamlit App Title
-    st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
-    st.title("📊 Interactive Merged PRs Dashboard")
-
-    # Sidebar content
-    st.sidebar.title("Holdex")
-    st.sidebar.text("Data for merged pull requests")
 
     # Load data
     df = load_data()

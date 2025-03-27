@@ -29,7 +29,7 @@ def main():
     st.sidebar.title("Holdex")
     st.sidebar.text("Data for merged pull requests")
 
-    # Custom CSS for black background
+    # Custom CSS for black background, except for the buttons
     st.markdown("""
         <style>
             .main {
@@ -54,6 +54,15 @@ def main():
             .stTextInput>div>input {
                 background-color: #333333;
                 color: white;
+            }
+            /* Styling the buttons to have normal background */
+            .stButton button {
+                background-color: #555555;
+                color: white;
+            }
+            /* Keep the button backgrounds light */
+            .stButton>button:hover {
+                background-color: #888888;
             }
         </style>
     """, unsafe_allow_html=True)

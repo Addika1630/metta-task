@@ -1,3 +1,10 @@
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+# Set page config first (before any other Streamlit command)
+st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
+
 # Custom CSS to apply a black background to the entire screen and style buttons
 st.markdown("""
 <style>
@@ -128,4 +135,3 @@ if __name__ == "__main__":
     main()
 
 
-    

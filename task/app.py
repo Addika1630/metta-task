@@ -107,7 +107,7 @@ def main():
         y=merged_over_time.values,
         mode='lines',
         line=dict(
-            color=merged_over_time.values,
+            color=merged_over_time.values,  # Pass values for color scale
             colorscale='Viridis',  # Gradient color scale
             width=3,  # Line width
             smoothing=1.3  # Smoothness of the curve
@@ -151,5 +151,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 

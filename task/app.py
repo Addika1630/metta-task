@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 
 # Set page config first (before any other Streamlit command)
 st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")

@@ -100,6 +100,14 @@ def main():
     # Merged PRs Over Time
     merged_over_time = filtered_prs.resample("W", on="updated_at").size()
     fig = px.line(x=merged_over_time.index, y=merged_over_time.values, labels={'x': 'Date', 'y': 'Number of PRs Merged'}, title="Merged PRs Over Time")
+    
+    # Adjust the size of the figure
+    fig.update_layout(
+        height=600,  # Height of the graph
+        title_x=0.5,  # Center the title
+        title_y=0.95  # Adjust title position
+    )
+    
     st.plotly_chart(fig, use_container_width=True)
 
     # Show raw data

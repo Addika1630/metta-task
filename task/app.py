@@ -21,7 +21,7 @@ st.markdown("""
         transition: all 0.3s ease;  /* Smooth transition for hover effects */
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
         cursor: pointer;
-        width: 120px; 
+        width: 200px; 
     }
 
     .stButton>button:hover {

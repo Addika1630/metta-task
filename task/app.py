@@ -84,7 +84,7 @@ def main():
     # Create a responsive grid of buttons for each owner
     cols = st.columns(4)
     for i, (owner, count) in enumerate(top_owners.items()):
-        with cols[i % 4]:
+        with cols[i % 5]:
             # Make button smaller by using 'st.button' with width control
             if st.button(f"{owner} ({count})", key=owner, use_container_width=False):
                 select_owner(owner)

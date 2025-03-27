@@ -2,34 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Set page config first, before any other Streamlit commands
-st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
-
-# Load data
-def load_data():
-    df = pd.read_csv("https://raw.githubusercontent.com/Addika1630/metta-task/refs/heads/main/task/exports.csv")
-    df["updated_at"] = pd.to_datetime(df["updated_at"], unit='s')
-    return df
-
-# Initialize session state for selected owner
-if "selected_owner" not in st.session_state:
-    st.session_state.selected_owner = None
-
-def select_owner(owner):
-    st.session_state.selected_owner = owner
-
-def reset_owner_selection():
-    st.session_state.selected_owner = None
-
-def main():
-    # Streamlit App Title
-    st.title("📊 Interactive Merged PRs Dashboard")
-
-    # Sidebar content
-    st.sidebar.title("Holdex")
-    st.sidebar.text("Data for merged pull requests")
-
-    # Custom CSS for black background, except for the buttons
+# Custom CSS for black background, except for the buttons
     st.markdown("""
         <style>
             .main {
@@ -66,6 +39,35 @@ def main():
             }
         </style>
     """, unsafe_allow_html=True)
+
+# Set page config first, before any other Streamlit commands
+st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
+
+# Load data
+def load_data():
+    df = pd.read_csv("https://raw.githubusercontent.com/Addika1630/metta-task/refs/heads/main/task/exports.csv")
+    df["updated_at"] = pd.to_datetime(df["updated_at"], unit='s')
+    return df
+
+# Initialize session state for selected owner
+if "selected_owner" not in st.session_state:
+    st.session_state.selected_owner = None
+
+def select_owner(owner):
+    st.session_state.selected_owner = owner
+
+def reset_owner_selection():
+    st.session_state.selected_owner = None
+
+def main():
+    # Streamlit App Title
+    st.title("📊 Interactive Merged PRs Dashboard")
+
+    # Sidebar content
+    st.sidebar.title("Holdex")
+    st.sidebar.text("Data for merged pull requests")
+
+   
 
     # Load data
     df = load_data()

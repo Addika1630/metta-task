@@ -100,8 +100,7 @@ def main():
 
     # Merged PRs Over Time
     merged_over_time = filtered_prs.resample("W", on="updated_at").size()
-    fig = px.line(x=merged_over_time.index, y=merged_over_time.values, labels={'x': 'Date', 'y': 'Number of PRs Merged'}, title="Merged PRs Over Time")
-    
+
     # Create the line plot with gradient color based on value
     trace = go.Scatter(
         x=merged_over_time.index,
@@ -143,7 +142,7 @@ def main():
         ),
     )
 
-    
+    # Show the chart
     st.plotly_chart(fig, use_container_width=True)
 
     # Show raw data

@@ -103,7 +103,7 @@ def main():
     
     # Adjust the size of the figure
     fig.update_layout(
-        height=600,  # Height of the graph
+        height=500,  # Height of the graph
         title_x=0.5,  # Center the title
         title_y=0.95  # Adjust title position
     )

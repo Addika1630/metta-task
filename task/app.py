@@ -4,41 +4,13 @@ import plotly.express as px
 
 # Custom CSS for black background, except for the buttons
 st.markdown("""
-        <style>
-            .main {
-                background-color: #000000;
-                color: white;
-            }
-            .css-18e3th9 {
-                background-color: #000000;
-            }
-            .css-1y0tads {
-                background-color: #000000;
-                color: white;
-            }
-            .stButton>button {
-                background-color: #444444;
-                color: white;
-            }
-            .stMetric>div>div {
-                background-color: #333333;
-                color: white;
-            }
-            .stTextInput>div>input {
-                background-color: #333333;
-                color: white;
-            }
-            /* Styling the buttons to have normal background */
-            .stButton button {
-                background-color: #555555;
-                color: white;
-            }
-            /* Keep the button backgrounds light */
-            .stButton>button:hover {
-                background-color: #888888;
-            }
-        </style>
-    """, unsafe_allow_html=True)
+<style>
+body {
+    background-color: #YOUR_COLOR;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 # Set page config first, before any other Streamlit commands
 st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")

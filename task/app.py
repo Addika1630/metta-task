@@ -2,19 +2,19 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Set page config first, before any other Streamlit commands
-
+# Set page config first (before any other Streamlit command)
+st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
 
 # Custom CSS to apply a black background to the entire screen
 st.markdown("""
 <style>
-    /* Background color for body and main container */
-    .css-1d391kg {
+    /* Background color for the entire page */
+    .main {
         background-color: #1e1e1e;
     }
 
-    /* Background color for Streamlit sidebar */
-    .css-1d391kg, .css-1lcbn6v {
+    /* Background color for the sidebar */
+    .css-1lcbn6v {
         background-color: #1e1e1e;
     }
 
@@ -39,6 +39,11 @@ st.markdown("""
 
     .stButton>button:hover {
         background-color: #666666;
+    }
+
+    /* Modify the color of Streamlit metrics */
+    .stMetricValue {
+        color: white;
     }
 </style>
 """, unsafe_allow_html=True)

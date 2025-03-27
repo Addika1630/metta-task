@@ -13,7 +13,7 @@ st.markdown("""
         background-color: #444444;
         color: white;
         border: none;
-        padding: 6px 15px;  /* Reduced padding for smaller button */
+        padding: 6px 18px;  /* Reduced padding for smaller button */
         border-radius: 12px;  /* Rounded corners */
         font-size: 12px;  /* Reduced font size */
         font-weight: bold;

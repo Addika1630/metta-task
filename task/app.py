@@ -19,6 +19,35 @@ def reset_owner_selection():
     st.session_state.selected_owner = None
 
 def main():
+    # Custom CSS for black background
+    st.markdown("""
+        <style>
+            .main {
+                background-color: #000000;
+                color: white;
+            }
+            .css-18e3th9 {
+                background-color: #000000;
+            }
+            .css-1y0tads {
+                background-color: #000000;
+                color: white;
+            }
+            .stButton>button {
+                background-color: #444444;
+                color: white;
+            }
+            .stMetric>div>div {
+                background-color: #333333;
+                color: white;
+            }
+            .stTextInput>div>input {
+                background-color: #333333;
+                color: white;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+    
     # Streamlit App Title
     st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
     st.title("📊 Interactive Merged PRs Dashboard")

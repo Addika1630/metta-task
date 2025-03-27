@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 
 # Set page config first (before any other Streamlit command)
 st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
@@ -99,15 +99,55 @@ def main():
 
     # Merged PRs Over Time
     merged_over_time = filtered_prs.resample("W", on="updated_at").size()
-    fig = px.line(x=merged_over_time.index, y=merged_over_time.values, labels={'x': 'Date', 'y': 'Number of PRs Merged'}, title="Merged PRs Over Time")
-    
-    # Adjust the size of the figure
+
+    # Create the line plot with smooth line and markers
+    fig = go.Figure()
+
+    # Add the line trace with color scale
+    fig.add_trace(go.Scatter(
+        x=merged_over_time.index,
+        y=merged_over_time.values,
+        mode='lines+markers',  # Use both lines and markers
+        line=dict(
+            color=merged_over_time.values,  # Use the values to color the line
+            colorscale='Viridis',  # Gradient color scale
+            width=4,  # Line width
+            smoothing=1.5,  # Smooth curve
+            colorbar=dict(title="Number of Merged PRs")  # Add color bar for reference
+        ),
+        marker=dict(
+            size=8,  # Marker size
+            color=merged_over_time.values,  # Same color scale for markers
+            colorscale='Viridis',  # Gradient color scale for markers
+            showscale=True  # Show color scale
+        ),
+        name="Merged PRs"
+    ))
+
+    # Update the layout for the figure
     fig.update_layout(
-        height=600,  # Height of the graph
+        height=500,  # Height of the graph
+        title='Merged PRs Over Time',
         title_x=0.5,  # Center the title
-        title_y=0.95  # Adjust title position
+        title_y=0.95,  # Adjust title position
+        xaxis_title='Date',
+        yaxis_title='Number of PRs Merged',
+        plot_bgcolor='#1e1e1e',  # Dark background color for the plot
+        paper_bgcolor='#1e1e1e',  # Dark background color for the paper
+        font=dict(
+            color="white"  # Set text color to white for better contrast
+        ),
+        showlegend=False,  # Hide the legend
+        xaxis=dict(
+            gridcolor="gray",  # Change the grid color
+            zeroline=False
+        ),
+        yaxis=dict(
+            gridcolor="gray",  # Change the grid color
+            zeroline=False
+        ),
     )
-    
+
     st.plotly_chart(fig, use_container_width=True)
 
     # Show raw data

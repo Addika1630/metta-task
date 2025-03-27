@@ -46,15 +46,6 @@ def main():
     fig = px.line(x=merged_over_time.index, y=merged_over_time.values, labels={'x': 'Date', 'y': 'Number of PRs Merged'}, title="Merged PRs Over Time")
     st.plotly_chart(fig)
 
-    # Merged PRs by Repository (Top 20)
-    merged_by_repo = filtered_prs["repository"].value_counts().head(20)
-    st.subheader("Merged PRs by Repository")
-    st.bar_chart(merged_by_repo)
-
-    # Merged PRs by Organization (Top 20)
-    merged_by_org = filtered_prs["organization"].value_counts().head(20)
-    st.subheader("Merged PRs by Organization")
-    st.bar_chart(merged_by_org)
 
     # Show raw data
     if st.checkbox("Show Raw Data"):

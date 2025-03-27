@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # Custom CSS for black background, except for the buttons
-    st.markdown("""
+st.markdown("""
         <style>
             .main {
                 background-color: #000000;

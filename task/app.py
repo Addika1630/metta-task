@@ -1,41 +1,40 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def load_data():
     # Load the dataset (modify the file path as needed)
-    df = pd.read_csv("https://raw.githubusercontent.com/Addika1630/metta-task/refs/heads/main/task/exports.csv")
+    df = pd.read_csv("your_file.csv", delimiter="\t")
+    
+    # Convert 'updated_at' to datetime format
+    df["updated_at"] = pd.to_datetime(df["updated_at"], unit='s')
+    
     return df
 
 def main():
     st.title("📊 Merged Pull Requests Dashboard")
     df = load_data()
     
-    # Filter for merged PRs
+    # Filter only merged PRs
     merged_prs = df[df["action"] == "PR_MERGED"]
     total_merged = merged_prs.shape[0]
     
     st.metric("Total Merged PRs", total_merged)
+
+    # Group by date to count PR_MERGED per day
+    merged_over_time = merged_prs.resample("D", on="updated_at").size()
+
+    # Time-series plot
+    st.subheader("Merged PRs Over Time")
+    fig, ax = plt.subplots()
+    ax.plot(merged_over_time.index, merged_over_time.values, marker='o', linestyle='-', color='b', linewidth=2)
+    ax.set_xlabel("Date")
+    ax.set_ylabel("Number of PRs Merged")
+    ax.set_title("PR Merges Over Time")
+    ax.grid(True)
     
-    # Merged PRs by Organization
-    merged_by_org = merged_prs["organization"].value_counts()
-    st.subheader("Merged PRs by Organization")
-    st.bar_chart(merged_by_org)
-    
-    # Merged PRs by Repository
-    merged_by_repo = merged_prs["repository"].value_counts()
-    st.subheader("Merged PRs by Repository")
-    st.bar_chart(merged_by_repo)
-    
-    # Merged PRs by Owner
-    merged_by_owner = merged_prs["owner"].value_counts().head(20)
-    st.subheader("Merged PRs by Owner")
-    st.bar_chart(merged_by_owner)
-    
-    # Show the raw data (optional)
-    if st.checkbox("Show Raw Data"):
-        st.dataframe(merged_prs)
+    # Display the matplotlib figure in Streamlit
+    st.pyplot(fig)
 
 if __name__ == "__main__":
     main()
-
-

@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
 def load_data():
     # Load the dataset (modify the file path as needed)

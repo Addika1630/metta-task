@@ -2,18 +2,46 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Custom CSS for black background, except for the buttons
-st.markdown("""
-<style>
-body {
-    background-color: #YOUR_COLOR;
-}
-</style>
-""", unsafe_allow_html=True)
-
-
 # Set page config first, before any other Streamlit commands
 st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
+
+# Custom CSS to apply a black background to the entire screen
+st.markdown("""
+<style>
+    /* Background color for body and main container */
+    .css-1d391kg {
+        background-color: #1e1e1e;
+    }
+
+    /* Background color for Streamlit sidebar */
+    .css-1d391kg, .css-1lcbn6v {
+        background-color: #1e1e1e;
+    }
+
+    /* Change text color to make it visible on dark background */
+    .css-1d391kg, .css-1lcbn6v, .css-14xt9kj {
+        color: white;
+    }
+
+    /* Custom background for the app title */
+    .css-12oz5g7 {
+        color: white;
+    }
+
+    /* Custom background for buttons and widgets */
+    .stButton>button {
+        background-color: #444444;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 5px;
+    }
+
+    .stButton>button:hover {
+        background-color: #666666;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # Load data
 def load_data():
@@ -38,8 +66,6 @@ def main():
     # Sidebar content
     st.sidebar.title("Holdex")
     st.sidebar.text("Data for merged pull requests")
-
-   
 
     # Load data
     df = load_data()

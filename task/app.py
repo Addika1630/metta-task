@@ -22,7 +22,7 @@ def main():
     st.metric("Total Merged PRs", total_merged)
 
     # Group by date to count PR_MERGED per day
-    merged_over_time = merged_prs.resample("D", on="updated_at").size()
+    merged_over_time = merged_prs.resample("W", on="updated_at").size()
 
     # Time-series plot
     st.subheader("Merged PRs Over Time")

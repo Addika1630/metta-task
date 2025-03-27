@@ -17,6 +17,11 @@ def select_owner(owner):
 
 def main():
     st.title("📊 Interactive Merged PRs Dashboard")
+    
+    # Sidebar content
+    st.sidebar.title("Holdex")
+    st.sidebar.text("Data for merged pull requests")
+
     df = load_data()
     merged_prs = df[df["action"] == "PR_MERGED"]
 
@@ -27,11 +32,14 @@ def main():
     # Merged PRs by Owner
     st.subheader("Select an Owner to Filter Data")
     top_owners = merged_prs["owner"].value_counts().head(20)
+    
+    # Create columns for the buttons
     cols = st.columns(4)
     
     for i, (owner, count) in enumerate(top_owners.items()):
         with cols[i % 4]:
-            if st.button(f"{owner} ({count})"):
+            # Make button smaller by using 'st.button' with width control
+            if st.button(f"{owner} ({count})", key=owner, use_container_width=False):
                 select_owner(owner)
     
     # Filter data by selected owner
@@ -45,7 +53,6 @@ def main():
     merged_over_time = filtered_prs.resample("W", on="updated_at").size()
     fig = px.line(x=merged_over_time.index, y=merged_over_time.values, labels={'x': 'Date', 'y': 'Number of PRs Merged'}, title="Merged PRs Over Time")
     st.plotly_chart(fig)
-
 
     # Show raw data
     if st.checkbox("Show Raw Data"):

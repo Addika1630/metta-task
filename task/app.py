@@ -13,9 +13,9 @@ st.markdown("""
         background-color: #444444;
         color: white;
         border: none;
-        padding: 12px 30px;
+        padding: 6px 15px;  /* Reduced padding for smaller button */
         border-radius: 12px;  /* Rounded corners */
-        font-size: 14px;
+        font-size: 12px;  /* Reduced font size */
         font-weight: bold;
         text-align: center;
         transition: all 0.3s ease;  /* Smooth transition for hover effects */
@@ -37,17 +37,6 @@ st.markdown("""
     .stButton>button:active {
         background-color: #555555;
         transform: scale(1.1);
-    }
-
-    /* Modify the color of Streamlit metrics */
-    .stMetricValue {
-        color: white;
-    }
-
-    /* Adjust chart background color */
-    .plotly-graph-div {
-        background-color: #1e1e1e;
-        color: white;
     }
 </style>
 """, unsafe_allow_html=True)

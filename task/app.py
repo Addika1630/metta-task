@@ -3,7 +3,7 @@ import pandas as pd
 
 def load_data():
     # Load the dataset (modify the file path as needed)
-    df = pd.read_csv("/exports.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/Addika1630/metta-task/refs/heads/main/task/exports.csv")
     return df
 
 def main():

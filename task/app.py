@@ -18,7 +18,7 @@ def select_owner(owner):
 def reset_owner_selection():
     st.session_state.selected_owner = None
 
-ddef main():
+def main():
     # Custom CSS for black background
     st.markdown("""
         <style>

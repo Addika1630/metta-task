@@ -1,10 +1,64 @@
-import streamlit as st
-import pandas as pd
-import plotly.express as px
+# Custom CSS to apply a black background to the entire screen and style buttons
+st.markdown("""
+<style>
+    /* Set background color for the entire page */
+    .css-1d391kg {
+        background-color: #1e1e1e;
+    }
 
-# Set page config first (before any other Streamlit command)
-st.set_page_config(page_title="Merged PRs Dashboard", page_icon="📊", layout="wide")
+    /* Sidebar background color */
+    .css-1lcbn6v {
+        background-color: #1e1e1e;
+    }
 
+    /* Text color for sidebar and body */
+    .css-1d391kg, .css-1lcbn6v, .css-14xt9kj, .css-12oz5g7 {
+        color: white;
+    }
+
+    /* Button styles */
+    .stButton>button {
+        background-color: #444444;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 12px;  /* Rounded corners */
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        transition: all 0.3s ease;  /* Smooth transition for hover effects */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+        cursor: pointer;
+    }
+
+    .stButton>button:hover {
+        background-color: #666666;
+        transform: scale(1.05);  /* Slight scaling effect on hover */
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);  /* Increased shadow on hover */
+    }
+
+    .stButton>button:focus {
+        outline: none;
+    }
+
+    /* Adjust color and shadow for button when clicked */
+    .stButton>button:active {
+        background-color: #555555;
+        transform: scale(1.1);
+    }
+
+    /* Modify the color of Streamlit metrics */
+    .stMetricValue {
+        color: white;
+    }
+
+    /* Adjust chart background color */
+    .plotly-graph-div {
+        background-color: #1e1e1e;
+        color: white;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # Load data
 def load_data():
@@ -74,3 +128,4 @@ if __name__ == "__main__":
     main()
 
 
+    

@@ -80,7 +80,7 @@ def main():
 
     # Merged PRs by Owner
     st.subheader("Select an Owner to Filter Data")
-    top_owners = merged_prs["owner"].value_counts().head(20)
+    top_owners = merged_prs["owner"].value_counts().head()
     
     # Create a responsive grid of buttons for each owner
     cols = st.columns(5)

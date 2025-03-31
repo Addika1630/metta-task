@@ -80,7 +80,7 @@ def main():
 
     # Merged PRs by Owner
     st.subheader("Select an Owner to Filter Data")
-    top_owners = merged_prs["owner"].value_counts().head()
+    top_owners = merged_prs["owner"].value_counts().head(20)
     
     # Create a responsive grid of buttons for each owner
     cols = st.columns(5)
@@ -101,6 +101,8 @@ def main():
     merged_over_time = filtered_prs.resample("W", on="updated_at").size()
     fig = px.line(x=merged_over_time.index, y=merged_over_time.values, labels={'x': 'Date', 'y': 'Number of PRs Merged'}, title="Merged PRs Over Time")
     
+    fig.update_traces(line_shape='spline')
+
     # Adjust the size of the figure
     fig.update_layout(
         height=500,  # Height of the graph

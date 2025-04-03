@@ -9,17 +9,13 @@
 ### Feature Engineering
    Feature engineering involved transforming raw PR event data into structured metrics that provide insights into developers' workflow. The following steps were implemented:
 
-**1 Data Preprocessing**
-
-- Timestamp Conversion: Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
-
-- Data Grouping: Aggregated PR events based on organization, repository, and id to analyze each PR individually.
-
-**2 Feature Extraction**
+**1. Feature Extraction**
 
 The following key metrics were derived:
 
-- Pickup Time: The time from PR opening to the first developer engagement (comment or review rejection).
+- Pickup Time: Pickup time measures how long it takes for a developer to first engage with a pull request after it is opened. The code calculates it as the time
+  difference between the PR_OPENED event and the first event related to developer engagement, such as PR_COMMENTED, PR_REVIEW_COMMENT, PR_REJECTED, or
+  PR_REVIEW_REJECT. If no such event exists, the pickup time is recorded as zero, assuming immediate engagement or inactivity.
 
 - Review Time: The time from first engagement to the first approval.
 
@@ -30,5 +26,13 @@ The following key metrics were derived:
 - Opened to Merged Time: The total duration from PR opened to merge completion.
 
 - Review Cycles Count: The number of review comments and rejection events, representing iterations before approval.
+
+**2. Data Preprocessing**
+
+- Timestamp Conversion: Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
+
+- Data Grouping: Aggregated PR events based on organization, repository, and id to analyze each PR individually.
+
+
    
    

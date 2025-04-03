@@ -53,6 +53,11 @@ The following key metrics were derived:
      ensuring that all related events were processed together. This allowed for accurate calculations of pickup time, review time, merge time, and review cycles for
      each PR..
 
+###  Model Selection Process
+   The goal of this model is to analyze and cluster developers' performance based on key PR metrics, and to classify developers into performance clusters using
+   machine learning techniques. The task is to segment developers based on their PR performance and predict future developer's behaviors. Key performance metrics
+   like merge time, review time, review_cycles_count and pickup time are the features used to assess each developer's workflow.
+
 
    
    

@@ -96,7 +96,7 @@ The following key metrics were derived:
    - Logistic Regression or SVM: Both logistic regression and SVM are linear models that might not perform well with the non-linear relationships inherent in the
      developer's performance data. KNN, being a non-parametric model, is better suited for this problem, which does not require assumptions about data distribution.
 
-### 4. MOdel Performance Metrics
+### 4. Model Performance Metrics
 
    The model's performance was evaluated using key metrics that provide insights into how well the K-Nearest Neighbors (KNN) model classifies developers into
    performance clusters. After applying K-Means clustering for segmentation, KNN was used for classification, and the model's performance was assessed using the
@@ -130,7 +130,16 @@ The following key metrics were derived:
 
       F1 Score: 0.91 (balanced measure of precision and recall)
 
+   These metrics demonstrate that the model performs effectively, with strong accuracy and recall, and an excellent precision score.
 
+   In addition to evaluating the model's performance, the Elbow Method was used to determine the optimal number of clusters for the K-Means clustering. The Elbow
+   Method helps identify the "elbow" point in the plot of the within-cluster sum of squares (WCSS), which shows how compact the clusters are. A sharp bend in the
+   graph indicates the optimal number of clusters, minimizing the WCSS while avoiding overfitting.
 
+   This method was applied before clustering to ensure that the chosen number of clusters is ideal for effectively segmenting the developers based on their
+   performance metrics. In our case, the elbow occurred at around 6 clusters, which was selected as the best number for meaningful segmentation of developer
+   performance.
+
+### 5. Business Insights
 
       

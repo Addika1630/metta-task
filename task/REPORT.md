@@ -59,6 +59,7 @@ The following key metrics were derived:
    like merge time, review time, review_cycles_count and pickup time are the features used to assess each developer's workflow.
 
    **Clustering Approach: K-Means**
+   
    The first major part of this model is to segment developers into clusters based on their performance metrics. For this, we utilized K-Means Clustering, a popular
    unsupervised learning technique. Here's why it was selected:
    - Unsupervised Learning: Since developers' performance labels (good, average, poor) are not available beforehand, an unsupervised learning approach was necessary.
@@ -70,7 +71,26 @@ The following key metrics were derived:
    - Interpretability: K-Means provides an easy-to-understand outcome, where developers can be classified into distinct clusters. These clusters represent different
      performance patterns, making it easier for decision-makers to interpret the results.
 
+   **Classification Approach: K-Nearest Neighbors (KNN)**
+   After clustering, we implemented K-Nearest Neighbors (KNN) to classify developers into performance clusters based on their key metrics. KNN was selected for the
+   following reasons:
 
+   - Simplicity and Effectiveness: KNN is simple and effective for small to medium-sized datasets like ours, where developers are characterized by a small number of
+     features. KNN classifies based on the closest neighbor in the feature space, making it suitable for our needs.
+
+   - Non-linearity: Since KNN doesn’t assume any linear relationship between the features, it is a great choice for this problem where performance metrics might have
+     complex interactions.
+
+   - Accuracy Metrics: KNN's performance was evaluated using accuracy, precision, recall, and F1-score to assess how well the model predicts developers' performance
+     clusters. These metrics give a comprehensive understanding of model performance and allow for fine-tuning.
+
+   **Why KNN Over Other Models:**
+   - Decision Trees and Random Forest: While decision trees offer interpretability, they are prone to overfitting on smaller datasets. Random Forest could improve
+     performance but would be computationally more expensive, especially with a larger dataset. KNN, in contrast, provides a good balance of simplicity,
+     interpretability, and performance for this problem.
+
+   - Logistic Regression or SVM: Both logistic regression and SVM are linear models that might not perform well with the non-linear relationships inherent in the
+     developer's performance data. KNN, being a non-parametric model, is better suited for this problem, which does not require assumptions about data distribution.
 
    
    

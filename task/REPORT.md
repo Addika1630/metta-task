@@ -20,7 +20,7 @@
 
 The following steps were implemented:
 
-**1. Feature Extraction**
+**1.1 Feature Extraction**
 
 The following key metrics were derived:
 
@@ -45,7 +45,7 @@ The following key metrics were derived:
 
    - **Opened to Merged Time:** The total duration from PR opened to merge completion.
 
-**2. Data Preprocessing**
+**1.2 Data Preprocessing**
 
    - **Timestamp Conversion:** Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
 

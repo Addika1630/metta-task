@@ -51,7 +51,10 @@ The following key metrics were derived:
 
    - **Data Grouping:** Data grouping was performed to analyze each pull request (PR) individually. The dataset was grouped by organization, repository, and PR ID,
      ensuring that all related events were processed together. This allowed for accurate calculations of pickup time, review time, merge time, and review cycles for
-     each PR..
+     each PR.
+   - **Scaling:** Scaling was applied to the key metrics (pickup time, review time, merge time, and review cycles count) using the StandardScaler. This standardizes
+     the features by removing the mean and scaling them to unit variance, ensuring that each feature contributes equally to the model and preventing features with
+     larger scales from dominating the analysis.
 
 ###  3. Model Selection Process
    The primary goal of this model is to analyze and cluster developers' performance based on key pull request (PR) metrics. We aim to segment developers according to

@@ -2,9 +2,16 @@
 
 ### 1. Introduction
    
-   This report presents a predictive modeling approach to analyze and cluster developers' performance based on the historical data. The study focuses on key
-   performance metrics, including merge time, review time, pickup time, and review cycles count, to forecast and improve developer efficiency. The report covers model
-   selection, feature engineering, model performance evaluation, and insights for business stakeholders.
+   Efficient software development relies on the smooth and timely processing of pull requests (PRs). Delays in reviewing, approving, and merging PRs can create
+   bottlenecks, slowing down project timelines and affecting overall team productivity. Understanding these delays and identifying patterns in developer performance
+   can help organizations optimize workflows and improve efficiency.
+
+   This report presents an analysis of developers’ PR workflows using machine learning techniques. By extracting key performance metrics—such as pickup time, review
+   time, merge time, and review cycles—we aim to uncover trends and inefficiencies in the PR process. To achieve this, we applied K-Means Clustering to segment
+   developers based on their performance and used a K-Nearest Neighbors (KNN) classifier to predict performance clusters.
+
+   Through this analysis, we provide actionable insights into areas where developers face delays, such as extended review or merge times. The findings help
+   organizations enhance their PR review process, optimize developer workflows, and boost overall productivity.
 
 ### 2. Feature Engineering
    Feature engineering involved transforming raw PR event data into structured metrics that provide insights into developers' workflows. In our case, we have a

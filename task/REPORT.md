@@ -146,18 +146,19 @@ The following key metrics were derived:
 
    - Developers with long merge times: Certain developers, including hooperben, gimbernat13, FarrukhRZ, and zolotokrylin, take a long time to merge their pull
      requests. A prolonged merge process slows down the overall development cycle, preventing developers from efficiently progressing to new tasks. The average merge
-     time is around 150 hours (approximately six days), highlighting a potential bottleneck in the final integration stage.
+     time for these developers is around 150 hours (approximately six days), highlighting a potential bottleneck in the final integration stage.
 
-   - Developers with long review and pcikup times: Some developers, such as Indralukmana and santosojuan99, experience significantly long review and pickup times for
-     their pull requests. This delay affects the overall development speed, as developers may struggle to start new pull requests if previous ones are not reviewed
-     promptly. The average review time across developers is approximately 200 hours, which, even accounting for weekends, translates to about a week just for the
-     review process. And the average pickup time is 90hr which is approximaely 3 and half days.
+   - Developers with long review and pickup times: Some developers, such as Indralukmana and santosojuan99, experience significantly long review and pickup times for
+     their pull requests. These delays affect overall development speed, as developers may struggle to start new pull requests if previous ones are not reviewed
+     promptly. The average review time for these developers is approximately 200 hours, which, even accounting for weekends, translates to about a week just for the
+     review process. Additionally, the average pickup time is 90 hours (approximately three and a half days).
 
-   - High review time compared to other phases: Some developers, such as 0xcoreblock, have notably high review times relative to their merge and pickup times. For
-     example, 0xcoreblock has an average review time of 120 hours, which may be attributed to extensive testing or delays in providing feedback. And other jnoun and
-     lmontero18 also experienced the same.
+   - High review times compared to other phases: Some developers, such as 0xcoreblock, have notably high review times relative to their merge and pickup times. For
+     example, 0xcoreblock has an average review time of 120 hours, which may be attributed to extensive testing or delays in providing feedback. Other developers,
+     including jnoun and lmontero18, have experienced similar delays.
 
-These insights can help identify bottlenecks in the review and merge processes, allowing teams to optimize workflows, improve efficiency, and enhance overall developer productivity.
+These insights can help identify bottlenecks in the review and merge processes, allowing teams to optimize workflows, improve efficiency, and enhance overall
+developer productivity.
 
 
 

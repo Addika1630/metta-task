@@ -13,11 +13,11 @@
 
 The following key metrics were derived:
 
-   **- Pickup Time:** Pickup time measures how long it takes for a developer to first engage with a pull request after it is opened. Calculates it as the time
+   - **Pickup Time:** Pickup time measures how long it takes for a developer to first engage with a pull request after it is opened. Calculates it as the time
   difference between the PR_OPENED event and the first event related to developer engagement, such as PR_COMMENTED, PR_REVIEW_COMMENT, PR_REJECTED, or
   PR_REVIEW_REJECT. If no such event exists, the pickup time is recorded as zero, assuming immediate engagement or inactivity.
 
-   **- Review Time:** Review time represents the duration from the first engagement (pickup event) to the first approval of the pull request. The code identifies the
+   - **Review Time:** Review time represents the duration from the first engagement (pickup event) to the first approval of the pull request. The code identifies the
   earliest event in PR_APPROVED or PR_REVIEW_APPROVE, then calculates the time difference from the pickup time. If no approval event exists, review time remains zero.
   This metric helps in evaluating how quickly reviews are conducted and if any bottlenecks exist in the approval process.
 

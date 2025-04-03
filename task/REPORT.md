@@ -1,12 +1,12 @@
 # Predictive Modeling Report
 
-### Introduction
+### 1. Introduction
    
    This report presents a predictive modeling approach to analyze and cluster developers' performance based on the historical data. The study focuses on key
    performance metrics, including merge time, review time, pickup time, and review cycles count, to forecast and improve developer efficiency. The report covers model
    selection, feature engineering, model performance evaluation, and insights for business stakeholders.
 
-### Feature Engineering
+### 2. Feature Engineering
    Feature engineering involved transforming raw PR event data into structured metrics that provide insights into developers' workflows. In our case, we have a
    history of pull requests for each developer and the process each request goes through until it is merged. Our task is to extract features from this data to better
    understand developers' performance.
@@ -53,7 +53,7 @@ The following key metrics were derived:
      ensuring that all related events were processed together. This allowed for accurate calculations of pickup time, review time, merge time, and review cycles for
      each PR..
 
-###  Model Selection Process
+###  3. Model Selection Process
    The goal of this model is to analyze and cluster developers' performance based on key PR metrics, and to classify developers into performance clusters using
    machine learning techniques. The task is to segment developers based on their PR performance and predict future developer's behaviors. Key performance metrics
    like merge time, review time, review_cycles_count and pickup time are the features used to assess each developer's workflow.
@@ -72,6 +72,7 @@ The following key metrics were derived:
      performance patterns, making it easier for decision-makers to interpret the results.
 
    **Classification Approach: K-Nearest Neighbors (KNN)**
+   
    After clustering, we implemented K-Nearest Neighbors (KNN) to classify developers into performance clusters based on their key metrics. KNN was selected for the
    following reasons:
 

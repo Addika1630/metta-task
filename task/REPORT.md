@@ -20,7 +20,7 @@
 
 The following steps were implemented:
 
-**1.1 Feature Extraction**
+**2.1 Feature Extraction**
 
 The following key metrics were derived:
 
@@ -45,7 +45,7 @@ The following key metrics were derived:
 
    - **Opened to Merged Time:** The total duration from PR opened to merge completion.
 
-**1.2 Data Preprocessing**
+**2.2 Data Preprocessing**
 
    - **Timestamp Conversion:** Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
 
@@ -96,5 +96,40 @@ The following key metrics were derived:
    - Logistic Regression or SVM: Both logistic regression and SVM are linear models that might not perform well with the non-linear relationships inherent in the
      developer's performance data. KNN, being a non-parametric model, is better suited for this problem, which does not require assumptions about data distribution.
 
-   
-   
+### 4. MOdel Performance Metrics
+
+   The model's performance was evaluated using key metrics that provide insights into how well the K-Nearest Neighbors (KNN) model classifies developers into
+   performance clusters. After applying K-Means clustering for segmentation, KNN was used for classification, and the model's performance was assessed using the
+   following metrics:
+
+   - **Accuracy**
+      Measures the proportion of correct predictions made by the model. It indicates how well the model classifies developers into the correct performance clusters.
+
+   - **Precision**
+      Represents the proportion of true positive predictions (correctly classified developers) relative to the total number of positive predictions. It reflects how
+      accurate the model is when identifying a developer's performance cluster.
+
+   - **Recall**
+      Measures the proportion of true positive predictions relative to the total number of actual positives. It indicates how well the model captures all relevant
+      instances in a given performance category.
+
+   - **F1 Score**
+      The harmonic mean of precision and recall, balancing the trade-off between the two. It is useful when the dataset is imbalanced, providing a single metric that
+      accounts for both false positives and false negatives.
+
+   The model's performance was evaluated on a test set using the metrics outlined above. After splitting the dataset into training and testing sets (X_train, X_test,
+   y_train, y_test), the KNN classifier was trained on the training data and then used to predict the clusters for the test data.
+
+   Our Metric Output:
+      Accuracy: 0.91 (91% of the predictions were correct)
+
+      Precision: 1.00 (100% of the positive predictions were correct)
+
+      Recall: 0.91 (91% of the actual positive instances were identified)
+
+      F1 Score: 0.91 (balanced measure of precision and recall)
+
+
+
+
+      

@@ -58,6 +58,19 @@ The following key metrics were derived:
    machine learning techniques. The task is to segment developers based on their PR performance and predict future developer's behaviors. Key performance metrics
    like merge time, review time, review_cycles_count and pickup time are the features used to assess each developer's workflow.
 
+   **Clustering Approach: K-Means**
+   The first major part of this model is to segment developers into clusters based on their performance metrics. For this, we utilized K-Means Clustering, a popular
+   unsupervised learning technique. Here's why it was selected:
+   - Unsupervised Learning: Since developers' performance labels (good, average, poor) are not available beforehand, an unsupervised learning approach was necessary.
+     K-Means helps group similar performance behaviors together.
+   
+   - Simplicity & Efficiency: K-Means is a simple and efficient algorithm to segment developers based on continuous variables like merge time, review time, and pickup
+     time. It's computationally lightweight compared to more complex models.
+   
+   - Interpretability: K-Means provides an easy-to-understand outcome, where developers can be classified into distinct clusters. These clusters represent different
+     performance patterns, making it easier for decision-makers to interpret the results.
+
+
 
    
    

@@ -14,20 +14,25 @@
 The following key metrics were derived:
 
    - **Pickup Time:** Pickup time measures how long it takes for a developer to first engage with a pull request after it is opened. Calculates it as the time
-  difference between the PR_OPENED event and the first event related to developer engagement, such as PR_COMMENTED, PR_REVIEW_COMMENT, PR_REJECTED, or
-  PR_REVIEW_REJECT. If no such event exists, the pickup time is recorded as zero, assuming immediate engagement or inactivity.
+     difference between the PR_OPENED event and the first event related to developer engagement, such as PR_COMMENTED, PR_REVIEW_COMMENT, PR_REJECTED, or
+     PR_REVIEW_REJECT. If no such event exists, the pickup time is recorded as zero, assuming immediate engagement or inactivity.
 
    - **Review Time:** Review time represents the duration from the first engagement (pickup event) to the first approval of the pull request. The code identifies the
-  earliest event in PR_APPROVED or PR_REVIEW_APPROVE, then calculates the time difference from the pickup time. If no approval event exists, review time remains zero.
-  This metric helps in evaluating how quickly reviews are conducted and if any bottlenecks exist in the approval process.
+     earliest event in PR_APPROVED or PR_REVIEW_APPROVE, then calculates the time difference from the pickup time. If no approval event exists, review time remains
+     zero. This metric helps in evaluating how quickly reviews are conducted and if any bottlenecks exist in the approval process.
 
-- Merge Time: The time from approval to the final merge.
+   - **Merge Time:** Merge time tracks the time taken from approval to the final merging of the pull request. The code identifies the PR_MERGED event and calculates
+     the time difference from the first approval event. If no merge event is found, merge time is recorded as zero. This metric helps assess delays between approval
+     and integration, highlighting potential inefficiencies in the development workflow, such as waiting times before merging approved code..
 
-- Total Time: The sum of pickup time, review time, and merge time.
+   - **Review Cycles Count:** Review cycles count represents the number of iterations a pull request goes through before final approval. The code
+     identifies all occurrences of PR_COMMENTED, PR_REVIEW_COMMENT, PR_REJECTED, and PR_REVIEW_REJECT, then counts their unique timestamps. Each event indicates a
+     review round where feedback was given, requiring modifications. A higher count suggests multiple review iterations, which could indicate either thorough code
+     quality checks or inefficiencies in the review process.
+     
+   - **Total Time:** The sum of pickup time, review time, and merge time.
 
-- Opened to Merged Time: The total duration from PR opened to merge completion.
-
-- Review Cycles Count: The number of review comments and rejection events, representing iterations before approval.
+   - **Opened to Merged Time:** The total duration from PR opened to merge completion.
 
 **2. Data Preprocessing**
 

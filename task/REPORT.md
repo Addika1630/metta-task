@@ -54,26 +54,26 @@ The following key metrics were derived:
      each PR..
 
 ###  3. Model Selection Process
-   The goal of this model is to analyze and cluster developers' performance based on key PR metrics, and to classify developers into performance clusters using
-   machine learning techniques. The task is to segment developers based on their PR performance and predict future developer's behaviors. Key performance metrics
-   like merge time, review time, review_cycles_count and pickup time are the features used to assess each developer's workflow.
-
+   The primary goal of this model is to analyze and cluster developers' performance based on key pull request (PR) metrics. We aim to segment developers according to
+   their PR performance and predict future behaviors using machine learning techniques. Key performance metrics such as merge time, review time, review cycles count,
+   and pickup time serve as the features to evaluate each developer's workflow.
+   
    **Clustering Approach: K-Means**
    
-   The first major part of this model is to segment developers into clusters based on their performance metrics. For this, we utilized K-Means Clustering, a popular
-   unsupervised learning technique. Here's why it was selected:
-   - Unsupervised Learning: Since developers' performance labels (good, average, poor) are not available beforehand, an unsupervised learning approach was necessary.
-     K-Means helps group similar performance behaviors together.
+   The first step in this model is to segment developers into clusters based on their performance metrics. To achieve this, we employed K-Means Clustering, a widely
+   used unsupervised learning algorithm. Below are the reasons for its selection:
+   - Unsupervised Learning: Since the labels for developers' performance (such as good, average, or poor) are not predefined, an unsupervised learning method was
+     required. K-Means enables grouping developers based on similar performance behaviors without needing labeled data.
    
-   - Simplicity & Efficiency: K-Means is a simple and efficient algorithm to segment developers based on continuous variables like merge time, review time, and pickup
-     time. It's computationally lightweight compared to more complex models.
+   - Simplicity & Efficiency: K-Means is straightforward to implement and computationally efficient. It works well with continuous variables, like merge time, review
+     time, and pickup time, which makes it ideal for our dataset.
    
-   - Interpretability: K-Means provides an easy-to-understand outcome, where developers can be classified into distinct clusters. These clusters represent different
-     performance patterns, making it easier for decision-makers to interpret the results.
+   - Interpretability: K-Means offers clear, understandable results. The developers are grouped into distinct clusters, each representing a unique performance
+     pattern, which makes it easy for decision-makers to interpret and act upon the results.
 
    **Classification Approach: K-Nearest Neighbors (KNN)**
    
-   After clustering, we implemented K-Nearest Neighbors (KNN) to classify developers into performance clusters based on their key metrics. KNN was selected for the
+   After performing clustering, we used K-Nearest Neighbors (KNN) to classify developers into performance clusters based on their key metrics. KNN was chosen for the
    following reasons:
 
    - Simplicity and Effectiveness: KNN is simple and effective for small to medium-sized datasets like ours, where developers are characterized by a small number of

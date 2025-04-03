@@ -2,12 +2,23 @@
 
 ### Introduction
    
-   This report presents a predictive modeling approach to analyze and cluster developers' performance based on the historical data. The study focuses on key performance
-   metrics, including merge time, review time, pickup time, and review cycles count, to forecast and improve developer efficiency. The report covers model selection,
-   feature engineering, model performance evaluation, and insights for business stakeholders.
+   This report presents a predictive modeling approach to analyze and cluster developers' performance based on the historical data. The study focuses on key
+   performance metrics, including merge time, review time, pickup time, and review cycles count, to forecast and improve developer efficiency. The report covers model
+   selection, feature engineering, model performance evaluation, and insights for business stakeholders.
 
 ### Feature Engineering
-   Feature engineering involved transforming raw PR event data into structured metrics that provide insights into developers' workflow. The following steps were implemented:
+   Feature engineering involved transforming raw PR event data into structured metrics that provide insights into developers' workflows. In our case, we have a
+   history of pull requests for each developer and the process each request goes through until it is merged. Our task is to extract features from this data to better
+   understand developers' performance.
+
+   Among the newly extracted features, __pickup time__ measures the time between a pull request being opened and a reviewer beginning their review. A long pickup
+   time can indicate a lack of visibility or unavailable reviewers, leading to slower feedback cycles and longer development times. __Review time__ measures the time
+   it takes for a pull request to be reviewed and for feedback to be provided. Long review times can impact team productivity and morale. __Merge time__ is a key
+   metric that measures the time from a pull request receiving an approved review until it is merged into the main codebase. A long merge time can indicate conflicts
+   with other changes or the presence of manual processes for merging.
+
+
+The following steps were implemented:
 
 **1. Feature Extraction**
 
@@ -36,9 +47,9 @@ The following key metrics were derived:
 
 **2. Data Preprocessing**
 
-- Timestamp Conversion: Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
+   - **Timestamp Conversion:** Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
 
-- Data Grouping: Aggregated PR events based on organization, repository, and id to analyze each PR individually.
+   - **Data Grouping:** Aggregated PR events based on organization, repository, and id to analyze each PR individually.
 
 
    

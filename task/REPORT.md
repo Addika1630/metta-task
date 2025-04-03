@@ -49,7 +49,9 @@ The following key metrics were derived:
 
    - **Timestamp Conversion:** Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
 
-   - **Data Grouping:** Aggregated PR events based on organization, repository, and id to analyze each PR individually.
+   - **Data Grouping:** Data grouping was performed to analyze each pull request (PR) individually. The dataset was grouped by organization, repository, and PR ID,
+     ensuring that all related events were processed together. This allowed for accurate calculations of pickup time, review time, merge time, and review cycles for
+     each PR..
 
 
    

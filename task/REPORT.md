@@ -9,13 +9,13 @@
 ### Feature Engineering
    Feature engineering involved transforming raw PR event data into structured metrics that provide insights into developers' workflow. The following steps were implemented:
 
-2.1 Data Preprocessing
+1 Data Preprocessing
 
 Timestamp Conversion: Converted Unix timestamps (updated_at) into datetime format for accurate time calculations.
 
 Data Grouping: Aggregated PR events based on organization, repository, and id to analyze each PR individually.
 
-2.2 Feature Extraction
+2 Feature Extraction
 
 The following key metrics were derived:
 

@@ -121,6 +121,7 @@ The following key metrics were derived:
    y_train, y_test), the KNN classifier was trained on the training data and then used to predict the clusters for the test data.
 
    Our Metric Output:
+   
       Accuracy: 0.91 (91% of the predictions were correct)
 
       Precision: 1.00 (100% of the positive predictions were correct)

@@ -18,7 +18,7 @@ $$
 
 This means **90.05%** of the opened pull requests were merged. The remaining **9.94%** were either rejected, closed without merging, or deemed unnecessary.
 
-##Pull Request Metrics
+__Pull Request Metrics__
 
 Pull Request metrics are an essential tool for software team productivity. By analyzing engineering metrics such as number of pull requests merged, and pull request lifetime teams can gain valuable insights into their development process.
 

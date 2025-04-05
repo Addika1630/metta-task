@@ -36,6 +36,29 @@ I created an interactive dashboard to showcase trends and insights. Based on the
 
 ![pull-request-merged](https://github.com/user-attachments/assets/98a801df-f609-420a-8457-4199bceba24b)
 
+
 From the plotted graph of Pull Requests merged over time, the highest number of merges occurred at the end of June 2024 and the end of October 2024. Conversely, the lowest number of merged Pull Requests was observed in the late September 2024 (around the 20s).
 
-I have linked the interactive dashboard to allow further exploration of these insights and trends. [here](https://developer-performance.streamlit.app/)
+![pull-request-merge-rate](https://github.com/user-attachments/assets/82b1b30b-38cf-42ef-9a79-eeb64280d34f)
+
+__Recommendation__
+
+  To improve developer efficiency and increase the number of successfully merged pull requests, one effective strategy is to keep PRs small and modular—this is where
+  stacking becomes valuable.
+
+  Stacking pull requests allows you to create a sequence of PRs, where each new one builds upon the changes introduced in the previous. This approach enables
+  continuous submission of PRs while earlier ones are still under review. Once an earlier PR is reviewed and merged, the subsequent PRs are automatically updated to
+  reflect the latest state of the codebase. This keeps changes synchronized and ensures smooth integration.
+
+  Stacking offers two major benefits that improve review response times and overall PR metrics on GitHub:
+
+  - Simplified Reviews: Smaller, more focused PRs are easier to review. This leads to quicker feedback, reduced reviewer fatigue, and a more efficient code review
+    cycle.
+
+  - Continuous Progress: By allowing developers to keep working and submitting new PRs, stacking prevents bottlenecks caused by pending reviews and helps maintain
+    development momentum.
+
+  Adopting a stacking approach can significantly enhance workflow efficiency, reduce unmerged PRs, and accelerate project delivery.
+
+
+

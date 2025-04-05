@@ -18,13 +18,23 @@ $$
 
 This means **90.05%** of the opened pull requests were merged. The remaining **9.94%** were either rejected, closed without merging, or deemed unnecessary.
 
+__Recommendation__
+
+  To reduce the number of unmerged pull requests, teams should start by clearly defining problems before development begins. This minimizes confusion, shortens
+  resolution time, and reduces the likelihood of rejection. Developers should verify whether a similar issue has already been addressed to avoid duplication.
+  Introducing clear and standardized code quality guidelines can also help maintain consistency across submissions and streamline the review process. Encouraging
+  regular communication between team members and reviewers further ensures alignment on expectations. These practices not only improve merge rates but also enhance
+  overall development efficiency and collaboration within the team.
+  
 __Pull Request Metrics__
 
 Pull Request metrics are an essential tool for software team productivity. By analyzing engineering metrics such as number of pull requests merged, and pull request lifetime teams can gain valuable insights into their development process.
 
 **Number of PRs Merged**
 
-Using the cleaned filtered_df data, I created an interactive dashboard to showcase trends and insights. Based on the data, addis-belete, angelicawill, and georgeciubotaru are the top three developers with the highest number of merged Pull Requests. However, this does not mean that other developers should be underestimated. For example, teodorus-nathaniel joined later but still managed to merge a high number of Pull Requests in a short period.
+I created an interactive dashboard to showcase trends and insights. Based on the data, addis-belete, angelicawill, and georgeciubotaru are the top three developers with the highest number of merged Pull Requests. However, this does not mean that other developers should be underestimated. For example, teodorus-nathaniel joined later but still managed to merge a high number of Pull Requests in a short period. Here is the number of Pull Request merged and their developer's name.
+
+![pull-request-merged](https://github.com/user-attachments/assets/98a801df-f609-420a-8457-4199bceba24b)
 
 From the plotted graph of Pull Requests merged over time, the highest number of merges occurred at the end of June 2024 and the end of October 2024. Conversely, the lowest number of merged Pull Requests was observed in the late September 2024 (around the 20s).
 

@@ -167,7 +167,12 @@ The following key metrics were derived:
 These insights can help identify bottlenecks in the review and merge processes, allowing teams to optimize workflows, improve efficiency, and enhance overall
 developer productivity.
 
-
+### Conclusion
+   This predictive modeling analysis highlights critical inefficiencies in the pull request lifecycle, identifying specific developers and stages—such as pickup,
+   review, and merge times—that contribute to delays. By leveraging clustering and classification models, we segmented developers by performance and predicted future
+   behavior with high accuracy. The insights derived can support data-driven decisions to streamline review processes, reduce wait times, and ultimately enhance
+   developer productivity. Moving forward, integrating these insights into workflow management tools can foster continuous improvement and collaboration, enabling
+   teams to deliver software more efficiently while maintaining high code quality and responsiveness.
 
 
 

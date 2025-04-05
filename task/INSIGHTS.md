@@ -1,5 +1,9 @@
 ### Intoroduction
-This document provides key insights from the interactive dashboard built to analyze developers' performance based on their pull request (PR) workflows. The goal is to identify bottlenecks and areas for improvement in the development process.
+  This report presents an exploratory analysis of pull request metrics to evaluate developer performance and workflow efficiency. By examining merge rates, PR
+  timelines, and review cycles, we uncover key patterns and bottlenecks. The insights and recommendations aim to optimize code integration, reduce delays, and
+  enhance team collaboration. You can explore the Interactive Dashboard [here](https://developer-performance.streamlit.app/)
+
+
 
 ### Exploratory Data Analysis (EDA)
 
@@ -87,11 +91,19 @@ When examining the relationship between review cycles count and time, we notice 
 ![review-cycles](https://github.com/user-attachments/assets/566a3e7f-6a9c-4ff3-94df-c9527f23b51d)
 
 
+__Recommendation__
+
+  To reduce PR turnaround time and align with Holdex's 3–4 hour guideline, teams should streamline the review process by enforcing clearer coding standards and
+  improving reviewer availability. Encouraging developers to submit smaller, well-scoped PRs can simplify reviews and reduce cycles. Implementing automated code
+  checks can catch issues early, minimizing back-and-forth feedback. Additionally, assigning dedicated reviewers or rotating review shifts ensures quicker pickups.
+  Monitoring PR metrics regularly can help identify bottlenecks and improve accountability. By optimizing these processes, teams can significantly reduce pickup and
+  review times, leading to faster integrations, improved productivity, and better alignment with contribution standards.
 
 
-
-
-
+### Conclusion
+  In summary, our analysis highlights areas for improving PR efficiency, such as reducing review times and increasing merge rates through better practices like
+  stacking and clearer standards. Implementing these strategies will not only enhance developer productivity but also align workflows with Holdex's guidelines for
+  faster, more effective collaboration.
 
 
 

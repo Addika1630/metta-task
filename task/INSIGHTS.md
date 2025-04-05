@@ -61,4 +61,52 @@ __Recommendation__
   Adopting a stacking approach can significantly enhance workflow efficiency, reduce unmerged PRs, and accelerate project delivery.
 
 
+**Pickup time, Review time and Merge time**
+
+  - Pickup Time is the duration between when a PR is opened and when a reviewer first engages with it. A long pickup time may indicate a lack of visibility, slow
+    triaging, or reviewer unavailability, leading to delayed feedback.
+
+  - Review Time measures how long it takes from the first engagement to the first approval of the PR. Extended review times can suggest inefficiencies in the review
+    process or unclear code quality standards.
+
+  - Merge Time refers to the time from when a PR is approved to when it is finally merged into the main codebase. Long merge times may point to manual merging
+    processes, integration issues, or low prioritization.
+
+  - Review Cycles Count captures the number of feedback iterations a PR goes through. A high count may imply extensive back-and-forth, unclear requirements, or code
+    needing multiple revisions before acceptance.
+
+The average total time taken for a pull request—from the moment it is opened to when it is finally merged—is approximately 24 hours or more. This includes pickup time, review time, and merge time. According to the Holdex contributing guidelines, pull requests are expected to be reviewed and merged within 3 to 4 hours. Therefore, the current time frame exceeds the recommended duration. However, data visualization shows that the total time is gradually decreasing over time, which is a positive development.
+
+Breaking down the components, review time accounts for the largest portion of the total time, followed by pickup time, and then merge time. Initially, merge time was higher, but it has significantly decreased, indicating improved efficiency in the final stage of the PR process.
+
+![review-time](https://github.com/user-attachments/assets/ccba57ea-c763-463b-a156-fc2cc3b89249)
+
+
+When examining the relationship between review cycles count and time, we notice that the number of review cycles was relatively low in the beginning, peaked in the middle, and then dropped again. A high review cycle count often suggests uncertainty from reviewers or the need for significant changes before approval. This can result in longer review times and delays in merging. Streamlining review cycles could help improve overall PR turnaround time.
+
+![review-cycles](https://github.com/user-attachments/assets/566a3e7f-6a9c-4ff3-94df-c9527f23b51d)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

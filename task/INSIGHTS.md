@@ -1,4 +1,4 @@
-### Intoroduction
+### Introduction
   This report presents an exploratory analysis of pull request metrics to evaluate developer performance and workflow efficiency. By examining merge rates, PR
   timelines, and review cycles, we uncover key patterns and bottlenecks. The insights and recommendations aim to optimize code integration, reduce delays, and
   enhance team collaboration. You can explore the Interactive Dashboard [here](https://developer-performance.streamlit.app/)
@@ -7,7 +7,7 @@
 
 ### Exploratory Data Analysis (EDA)
 
-**Merge rate**
+**1. Merge rate**
 
 Now, we can calculate the percentage of pull requests that were successfully merged out of the total pull requests that were opened. This metric helps assess developer productivity and code integration efficiency. The pull requests that were not merged may have been rejected due to quality concerns, conflicts, or failure to meet project requirements. Additionally, some pull requests may have been closed because they were no longer necessary, either due to changes in project priorities or because their functionality was addressed elsewhere. Understanding these trends can provide valuable insights into development workflows and help improve overall pull request management.
 
@@ -30,11 +30,11 @@ __Recommendation__
   regular communication between team members and reviewers further ensures alignment on expectations. These practices not only improve merge rates but also enhance
   overall development efficiency and collaboration within the team.
   
-__Pull Request Metrics__
+__2. Pull Request Metrics__
 
 Pull Request metrics are an essential tool for software team productivity. By analyzing engineering metrics such as number of pull requests merged, and pull request lifetime teams can gain valuable insights into their development process.
 
-**Number of PRs Merged**
+**2.1 Number of PRs Merged**
 
 I created an interactive dashboard to showcase trends and insights. Based on the data, addis-belete, angelicawill, and georgeciubotaru are the top three developers with the highest number of merged Pull Requests. However, this does not mean that other developers should be underestimated. For example, teodorus-nathaniel joined later but still managed to merge a high number of Pull Requests in a short period. Here is the number of Pull Request merged and their developer's name.
 
@@ -65,7 +65,7 @@ __Recommendation__
   Adopting a stacking approach can significantly enhance workflow efficiency, reduce unmerged PRs, and accelerate project delivery.
 
 
-**Pickup time, Review time and Merge time**
+**2.2 Pickup time, Review time and Merge time**
 
   - Pickup Time is the duration between when a PR is opened and when a reviewer first engages with it. A long pickup time may indicate a lack of visibility, slow
     triaging, or reviewer unavailability, leading to delayed feedback.

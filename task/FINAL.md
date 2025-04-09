@@ -1,80 +1,119 @@
-<!DOCTYPE html>
-<html>
-<body>
+# 🧠 Developer Coaching Dashboard
 
-  <h1>Integrating API in Wordpress Project</h1>
+Welcome to the Developer Coaching Dashboard, a powerful data analytics tool designed to enhance the coaching and development of software engineers. Built using Streamlit, this platform offers a comprehensive view into developers' pull request (PR) activity, providing actionable insights to optimize performance, collaboration, and engagement.
 
-  <h2>Overview</h2>
+## 📊 Project Overview
 
-  <p>In this project, I integrated a Flask API into a WordPress site, enabling sentiment analysis. Users submit text through WordPress, which is sent to the Flask API for analysis, returning sentiment and confidence scores in real-time.</p>
+The dashboard leverages key performance metrics such as **merge time**, **review time**, **pickup time**, and **review cycles** to help managers and teams make informed decisions about coaching, resource allocation, and process improvements. It features advanced functionalities like clustering developers based on performance metrics, interactive data visualizations, and predictive modeling to assess future trends and potential challenges.
 
-  <h2>Introduction</h2>
+Key capabilities include:
 
-  <p>This project integrates a Flask API into a WordPress site to perform sentiment analysis. Users can input text through the WordPress interface, which is then sent to the Flask API. The API processes the text to determine sentiment—whether it’s positive or negative—along with a confidence score. This integration enhances WordPress with dynamic data analysis capabilities, offering users immediate insights into the sentiment of their content or reviews.</p>
+- **Pull Request Efficiency Analysis**: Track and analyze key metrics over time, such as the time spent on reviewing and merging PRs.
+- **Developer Clustering**: Group developers into clusters based on performance to identify trends and outliers.
+- **Predictive Modeling**: Forecast future developer performance using machine learning algorithms like K-Means and KNN.
+- **Interactive Dashboards**: Visualize PR trends, review cycles, and more with interactive charts.
 
-  <h2>Features</h2>
+This dashboard is ideal for engineering managers and teams looking to improve developer performance, streamline workflows, and provide personalized coaching.
 
-  <ol>
-    <li><strong>app.py (Flask API):</strong> I developed an endpoint (/predict) that processes input text, predicts sentiment (positive/negative), and returns a confidence score. Added error handling for smooth interaction.</li>
-    <li><strong>app.php (WordPress Integration):</strong> Created a function to send text to the Flask API, retrieve the sentiment and confidence score, and display it under the “Analyze Sentiment” button in WordPress. Enhanced the interface for clarity.</li>
-    <li><strong>docker-compose.yaml:</strong> Configured Flask and WordPress as services with distinct containers, defined networking, and mapped ports to ensure the WordPress interface could communicate with the Flask API effectively.</li>
-  </ol>
-
-  ## Getting Started
-
-1. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/Addika1630/api_ml-service.git
-    ```
-
-2. **Navigate to the Required Directory:**
-    ```bash
-    cd api_ml-service/bash-wordpress-docker-setup
-    ```
-
-3. **Build and Start Services:**
-   Ensure Docker and Docker Compose are installed, then run:
-    ```bash
-    sudo docker-compose up
-    ```
-   This command will build and start both the Flask and WordPress containers.
-
-4. **Access WordPress and Flask Services:**
-   - Once the containers are running, open your web browser and navigate to:
-      - Sentiment Analysis: `http://localhost:8030/?page_id=5`
-      - WordPress: `http://localhost:8030` (or the port specified in your `docker-compose.yaml`)
-      - Flask API: `http://localhost:5000` (or the port specified in your `docker-compose.yaml` for Flask)
-
-5. **Testing the Integration:**
-   - In WordPress, use the integrated plugin or shortcode to send a sample request to the Flask API.
-   - You should see the output of the sentiment analysis directly on the WordPress page.
-
-6. **Stopping the Services:**
-   - To stop the running containers, press `CTRL+C` in the terminal where you ran `docker-compose up`.
-   - Alternatively, run:
-     ```bash
-     sudo docker-compose down
-     ```
-
-7. **Optional: Rebuilding the Containers:**
-   - If you've made changes to the code and need to rebuild the containers, run:
-     ```bash
-     sudo docker-compose up --build
-     ```
-
-This setup will ensure your Flask API and WordPress services are properly connected and running in Docker.
+---
 
 
-  <h2>Usage</h2>
+## 📁 Project Structure
 
-  <p>Clone the repository, set up Docker containers, and navigate to the WordPress page with the sentiment analysis form. Enter text, and the Flask API will analyze the sentiment, displaying the result and confidence score directly on the page.</p>
+```bash
+holdex-trial-data_scientist/
+├── notebook/
+│   ├── data_cleaning.ipynb          # Data Cleaning notebook
+│   └── feature_engineering.ipynb    # Featue Engineering notebook
+├── INSIGHTS.md                      # Insights and Recommendation report
+├── PREDICTIVE_REPORT.md             # Predictive model report
+├── app.py                           # Predictive model report
+├── requirements.txt                 # Python dependencies
+└── README.md                        # Project documentation
+```
+---
 
-  <h2>User Interface</h2>
+### Description of Key Files:
+  - **notebook/data_cleaning.ipynb**: This notebook contains the steps to clean the raw data, handle missing values, and prepare it for analysis and modeling.
 
-  <p>The WordPress page features a simple form where users can input text for sentiment analysis. Upon submitting, the Flask API processes the input and returns the sentiment (positive/negative) along with the confidence score, which is displayed below the form for the user's reference.</p>
+  - **notebook/feature_engineering.ipynb**: In this notebook, feature engineering techniques are applied to create new features and transform existing ones to improve
+    model performance.
 
+  - **INSIGHTS.md**: Provides insights, key findings, and recommendations based on the data analysis conducted in the project.
+
+  - **PREDICTIVE_REPORT.md**: Contains a detailed report on the predictive modeling process, including model selection, training, evaluation, and performance metrics.
+
+  - **app.py**: The main Python application file that serves the Developer Coaching Dashboard. It provides an interactive user interface for analyzing pull requests,
+    developer performance, and efficiency. The app is built using Streamlit and incorporates multiple features:
   
+  - **requirements.txt**: Lists all necessary Python libraries and dependencies to replicate the project environment. It can be installed with `pip install -r
+    requirements.txt`.
 
-</body>
+## 🛠️ Tech Stack
 
-</html>
+- `Python 3.8+`
+- `Pandas`, `NumPy`
+- `Scikit-learn`
+- `Streamlit`
+- `Plotly`
+- `KMeans`, `KNN`, `StandardScaler`
+
+---
+
+## ⚙️ Installation
+
+  1. Clone the repostory:
+
+  ```bash
+  git clone https://github.com/Addika1630/holdex-trial-data_scientist.git
+  ```
+
+  2. Navigate to the project directory:
+  ```
+  cd holdex-trial-data_scientist
+  ```
+
+  3. Install the required dependencies:
+  ```
+  pip install -r requirements.txt
+  ```
+
+  4. Run the application
+   ```
+  streamlit run app.py
+  ```
+
+  5. Navigate to the local repository by visiting the URL provided by Streamlit, typically:
+ ```
+  http://localhost:8501
+  ```
+
+
+### 📸 Screenshots
+**Dashboard Overview**
+
+Number of Pull Requests Merged versus Date
+
+![pull-request-merge-rate](https://github.com/user-attachments/assets/0c521371-84cb-480e-8b2a-ab7471fe2a77)
+
+
+Average Time Taken to Merge Pull Requests versus Date
+![review-time](https://github.com/user-attachments/assets/7f5ec078-0233-4bb1-951e-f615d554e92f)
+
+
+## 📬 Contact
+
+If you have any questions or feedback, feel free to reach out to the project maintainer:
+
+- **Email**: addisu05mulat@gmail.com
+- **GitHub**: [Addika1630](https://github.com/Addika1630)
+
+
+## Use Cases
+
+- **Coaching Efficiency**: Track which developers are having difficulty with merging or reviewing pull requests and provide additional coaching.
+- **Performance Tracking**: Visualize trends over time to assess how different developers' performance has changed.
+- **Predictive Analysis**: Forecast future performance trends based on historical PR data, enabling proactive interventions.
+
+
+

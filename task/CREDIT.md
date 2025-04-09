@@ -52,3 +52,106 @@ To build the credit scoring model, the following data features will be collected
 - **Repayment Prediction Accuracy**: This metric evaluates the model's ability to accurately predict whether a user will repay their loan. Accurate repayment prediction is crucial for ensuring that the system can identify users who are likely to default or struggle with repayment, allowing lenders to make informed decisions based on that insight.
 
 - **Risk Mitigation**: Risk mitigation measures how well the model reduces the likelihood of defaults or financial losses. By incorporating various factors such as health factor, loan-to-value (LTV) ratio, and credit mix, the model should help minimize high-risk loans and protect lenders, thereby enhancing the overall stability of the decentralized lending platform.
+
+
+### High-Level Plan for Analysis and Modeling
+
+
+Preprocessing:
+
+Clean the data by handling missing or inconsistent values.
+
+Normalize the features (e.g., using min-max normalization) to ensure that all data is within the same range.
+
+Create a structured DataFrame containing key features like Account Activity, Health Factor, LTV, and Credit Mix.
+
+3. Feature Engineering
+Key Features:
+
+Account Activity: Frequency of interactions, transactions per time unit.
+
+Health Factor: A ratio of collateral to borrowed assets, representing the safety of a user’s assets.
+
+Loan-to-Value (LTV): The ratio of a user's borrowing capacity to their collateral. High LTV indicates higher risk.
+
+Credit Mix: Diversity of the user's credit portfolio.
+
+Repayment Rate: Percentage of loans successfully repaid by the user.
+
+4. Credit Score Formula and Model Design
+Credit Score Formula:
+
+The formula to calculate the credit score is a weighted sum of various factors: Payment History (38.5%), Amount Owed (33.5%), Length of Credit History (16.5%), Credit Mix (11.5%), and Anomaly Score (20%).
+
+Credit Score
+=
+𝑃
++
+𝐴
++
+𝐿
++
+𝐶
+−
+𝑋
+Credit Score=P+A+L+C−X
+Where:
+
+P = Payment History
+
+A = Amount Owed
+
+L = Length of Credit History
+
+C = Credit Mix
+
+X = Anomaly Score (calculated using machine learning)
+
+Anomaly Detection:
+
+Objective: Use machine learning (ML) to identify anomalous user behavior, such as default risk.
+
+Modeling Approach: Implement an unsupervised learning algorithm, specifically autoencoders, for anomaly detection.
+
+Autoencoders are trained to reconstruct data, and anomalous data points will have a higher reconstruction error, which helps in identifying unusual behavior patterns.
+
+5. Model Development and Training
+Unsupervised Learning with Autoencoders:
+
+Build an autoencoder network to learn compressed representations of the user's on-chain data.
+
+Train the autoencoder on "normal" user data to minimize reconstruction error.
+
+Identify anomalies by measuring reconstruction error: Data points with high reconstruction error are classified as anomalous.
+
+Model Training:
+
+Split the dataset into training and testing subsets.
+
+Use TensorFlow or other frameworks to build and train the autoencoder.
+
+Optimize the model using Stochastic Gradient Descent (SGD) and calculate the loss using Mean Squared Logarithmic Loss.
+
+Train for a set number of epochs (e.g., 20 epochs) to fine-tune the model.
+
+6. Anomaly Detection and Thresholding
+Thresholding:
+
+Calculate the mean and standard deviation of the reconstruction error on the training set.
+
+Set a threshold to classify a data point as anomalous if its reconstruction error exceeds one standard deviation from the mean.
+
+Anomaly Scoring:
+
+The anomaly score 
+𝑋
+X is computed based on the reconstruction error. A higher anomaly score indicates higher risk, which is then subtracted from the credit score formula.
+
+7. Evaluation and Testing
+Model Evaluation:
+
+Evaluate the performance of the model using appropriate metrics, such as the rate of false positives and false negatives in anomaly detection.
+
+Test the model on a held-out test set to measure its ability to generalize.
+
+Fine-tune the model based on evaluation results and adjust the thresholds for anomaly detection.

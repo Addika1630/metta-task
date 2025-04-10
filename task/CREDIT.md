@@ -56,102 +56,126 @@ To build the credit scoring model, the following data features will be collected
 
 ### High-Level Plan for Analysis and Modeling
 
+To effectively build the decentralized credit scoring system, we will proceed with a structured analysis and modeling process. This process will ensure that the credit scoring model is robust, transparent, and scalable. Below is the detailed and structured approach:
 
-Preprocessing:
+1. Data Preprocessing
 
-Clean the data by handling missing or inconsistent values.
+   The first step is to preprocess the data. This involves cleaning, transforming, and structuring the raw data to ensure it is suitable for modeling.
 
-Normalize the features (e.g., using min-max normalization) to ensure that all data is within the same range.
+   - Handle Missing Data: Missing values can distort the analysis and modeling process. These will either be imputed using statistical methods (e.g., mean or median
+     imputation) or rows with excessive missing data will be removed, depending on the extent.
 
-Create a structured DataFrame containing key features like Account Activity, Health Factor, LTV, and Credit Mix.
+   - Remove Outliers: Extreme outliers can skew the results. Outliers will be identified using methods like Z-scores or IQR and handled appropriately.
 
-3. Feature Engineering
-Key Features:
+   - Data Normalization: Normalize the features to bring them into a comparable scale (e.g., using Min-Max scaling or Z-score normalization). This ensures that
+    features with larger scales (like collateral values) do not disproportionately affect the model.
 
-Account Activity: Frequency of interactions, transactions per time unit.
+   - Feature Selection: Identify key features for the model, ensuring that only the most relevant data is included, based on the objective of the decentralized credit
+    score.
+  
+2. Feature Engineering
 
-Health Factor: A ratio of collateral to borrowed assets, representing the safety of a user’s assets.
+   Feature engineering is critical to ensure that the model has the necessary inputs to make accurate predictions. The following features will be created and
+   analyzed:
 
-Loan-to-Value (LTV): The ratio of a user's borrowing capacity to their collateral. High LTV indicates higher risk.
+   - Account Activity: Calculate the frequency of transactions and interactions over the user’s account lifetime. This can be done by counting transactions within
+     specified time windows (e.g., per month or year).
 
-Credit Mix: Diversity of the user's credit portfolio.
+   - Health Factor: Create a metric that represents the safety of a user’s assets. This will be the ratio of collateral deposited to the amount borrowed. A value
+     closer to 1 indicates a safer position.
 
-Repayment Rate: Percentage of loans successfully repaid by the user.
+   - Loan-to-Value (LTV): This ratio indicates the risk in lending by comparing the loan amount with the value of the collateral. Higher LTV values indicate higher
+     lending risk.
 
-4. Credit Score Formula and Model Design
-Credit Score Formula:
+   - Current Liquidity Threshold: Define the user’s proximity to liquidation, based on their current available collateral and borrowings. This feature helps assess
+     the user’s potential default risk.
 
-The formula to calculate the credit score is a weighted sum of various factors: Payment History (38.5%), Amount Owed (33.5%), Length of Credit History (16.5%), Credit Mix (11.5%), and Anomaly Score (20%).
+   - Total Collateral: Measure the total amount of collateral deposited by the user. Higher collateral usually indicates lower risk, as more assets are available to
+     back the loan.
 
-Credit Score
-=
-𝑃
-+
-𝐴
-+
-𝐿
-+
-𝐶
-−
-𝑋
-Credit Score=P+A+L+C−X
-Where:
+   - Available Borrowing Capacity: This metric measures how much a user can still borrow based on their existing collateral.
 
-P = Payment History
+   - Credit Mix (Diversification): A diversified credit portfolio suggests that a user is managing multiple types of debt, which can reduce default risk.
 
-A = Amount Owed
+   - Repayment Rate: Calculate the percentage of loans successfully repaid by the user. Higher repayment rates indicate responsible behavior and lower credit risk.
 
-L = Length of Credit History
+3. Designing the Credit Scoring Model
 
-C = Credit Mix
+   The heart of the system will be a credit scoring model that integrates blockchain data and anomaly detection. Below is the step-by-step breakdown:
 
-X = Anomaly Score (calculated using machine learning)
+   - Credit Score Formula
 
-Anomaly Detection:
+     The credit score will be based on a weighted sum of various factors:
 
-Objective: Use machine learning (ML) to identify anomalous user behavior, such as default risk.
+      Credit Score = P + A + L + C - X
 
-Modeling Approach: Implement an unsupervised learning algorithm, specifically autoencoders, for anomaly detection.
+      Where:
 
-Autoencoders are trained to reconstruct data, and anomalous data points will have a higher reconstruction error, which helps in identifying unusual behavior patterns.
+     - **P** = Payment History (38.5%)
+     - **A** = Amount Owed (33.5%)
+     - **L** = Length of Credit History (16.5%)
+     - **C** = Credit Mix (11.5%)
+     - **X** = Anomaly Score (calculated using machine learning)
 
-5. Model Development and Training
-Unsupervised Learning with Autoencoders:
+   - Anomaly Detection Integration:
+     Anomaly detection plays a crucial role in identifying outliers or atypical behavior that could indicate high risk. This will be incorporated using machine
+     learning models, specifically autoencoders:
 
-Build an autoencoder network to learn compressed representations of the user's on-chain data.
+     - Autoencoder Structure: An autoencoder will be trained to learn compressed representations of user behavior. When a user exhibits behavior outside the learned
+       "normal" range, this will result in a higher reconstruction error.
+     - Anomaly Scoring: Based on the reconstruction error, an anomaly score will be computed. Higher scores suggest higher risk and are subtracted from the credit
+       score.
 
-Train the autoencoder on "normal" user data to minimize reconstruction error.
 
-Identify anomalies by measuring reconstruction error: Data points with high reconstruction error are classified as anomalous.
+4. Model Development and Training
 
-Model Training:
+- Split the Data: Begin by dividing the dataset into training and test sets (typically 80/20 split) to evaluate how well the model generalizes to unseen data.
 
-Split the dataset into training and testing subsets.
+- Model Type: Implement an unsupervised anomaly detection algorithm (autoencoders), which is ideal for identifying outliers in user behavior when no labels are
+  provided.
 
-Use TensorFlow or other frameworks to build and train the autoencoder.
+- Autoencoder Model:
+  - Network Design: An autoencoder network will be built with multiple layers to learn compressed representations of user transaction and borrowing behaviors. The
+    encoder will reduce dimensionality, while the decoder will reconstruct the data.
 
-Optimize the model using Stochastic Gradient Descent (SGD) and calculate the loss using Mean Squared Logarithmic Loss.
+  - Training: The model will be trained to minimize reconstruction error using Mean Squared Logarithmic Loss (MSLL) as the loss function.
 
-Train for a set number of epochs (e.g., 20 epochs) to fine-tune the model.
+  - Optimization: The network will be optimized using Stochastic Gradient Descent (SGD) with backpropagation for weight adjustment.
 
-6. Anomaly Detection and Thresholding
-Thresholding:
+- Model Evaluation:
 
-Calculate the mean and standard deviation of the reconstruction error on the training set.
+  - Loss Function: The model will be evaluated using the reconstruction error (MSE or MSLL) to identify how well the autoencoder predicts normal behavior.
 
-Set a threshold to classify a data point as anomalous if its reconstruction error exceeds one standard deviation from the mean.
+  - Thresholding: Set thresholds for anomaly detection (e.g., 1 standard deviation above the mean error) to classify a data point as anomalous.
 
-Anomaly Scoring:
+5. Anomaly Detection and Thresholding
 
-The anomaly score 
-𝑋
-X is computed based on the reconstruction error. A higher anomaly score indicates higher risk, which is then subtracted from the credit score formula.
+   Once the autoencoder is trained, the model will use the reconstruction error to detect anomalies in real-time.
 
-7. Evaluation and Testing
-Model Evaluation:
+   - Anomaly Threshold:
 
-Evaluate the performance of the model using appropriate metrics, such as the rate of false positives and false negatives in anomaly detection.
+     - Set a threshold to classify data points as anomalous if their reconstruction error exceeds a set number of standard deviations from the mean.
 
-Test the model on a held-out test set to measure its ability to generalize.
+     - This threshold will be fine-tuned during training to ensure optimal anomaly detection without excessive false positives.
 
-Fine-tune the model based on evaluation results and adjust the thresholds for anomaly detection.
+   - Anomaly Scoring:
+   
+     - The reconstruction error will be normalized to derive an anomaly score. This score will be integrated into the final credit score formula to reduce the
+       overall credit score for users exhibiting risky behavior.
+
+
+6. Evaluation and Testing
+   
+   The model will undergo rigorous evaluation to assess its effectiveness in predicting creditworthiness:
+
+   - Evaluation Metrics:
+
+     - False Positives/Negatives: Measure how often the model incorrectly classifies users as low-risk (false negatives) or high-risk (false positives).
+
+     - Credit Score Accuracy: Compare the predicted credit score with actual loan outcomes (repayment vs. default).
+
+     - Anomaly Detection Precision: Assess how well the anomaly detection system identifies high-risk behavior without flagging too many false anomalies.
+
+   - Testing on Unseen Data: Test the model on a held-out test set to ensure it generalizes well to unseen data.
+
+   - Fine-tuning: Based on the evaluation results, adjust the thresholds for anomaly detection and re-train the model to optimize performance.

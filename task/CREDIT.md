@@ -179,3 +179,8 @@ To effectively build the decentralized credit scoring system, we will proceed wi
    - Testing on Unseen Data: Test the model on a held-out test set to ensure it generalizes well to unseen data.
 
    - Fine-tuning: Based on the evaluation results, adjust the thresholds for anomaly detection and re-train the model to optimize performance.
+
+
+### Conclusion
+
+The decentralized credit scoring system offers a fair, transparent, and privacy-preserving alternative to traditional credit assessments by utilizing blockchain data and anomaly detection. By analyzing on-chain data, the system empowers underserved populations to access credit without relying on traditional credit reports, fostering financial inclusion. Anomaly detection helps minimize risk by identifying high-risk behaviors, ensuring more accurate creditworthiness evaluations. This approach has the potential to reshape credit scoring in decentralized finance, enabling safer, more equitable access to credit and driving economic growth.
